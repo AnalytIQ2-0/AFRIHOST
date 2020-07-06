@@ -1,8 +1,8 @@
 <?php
 
-$username = "root";
+$username = "afriHost";
 $database = "afrihost";
-$password = ""; 
+$password = "MmkVsOqwyNMy1Kf2";  
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 if($conn){
@@ -16,15 +16,14 @@ if($conn){
 	$title=$_POST["title"];
 	$companyName=$_POST["companyName"];
 	$companySize=$_POST["companySize"];
-	$status=$_POST["status"];
 	$password=$_POST["password"];
 	if(isset($fname,$lname,$country,$city,$contactNo)){
-		$checkResult = $conn->query("SELECT * FROM member WHERE member_email = '$email' AND member_fname = '$fname'");
+		$checkResult = $conn->query("SELECT * FROM MEMBER WHERE member_email = '$email' AND member_fname = '$fname'");
         if($checkResult->num_rows > 0){
-            echo ("Member already exists.");
+            echo ("This member already exists.");
         }
 		else{
-            $query ="INSERT INTO member (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize,member_status,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            $query ="INSERT INTO MEMBER (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
             $fname=mysqli_real_escape_string($conn, $fname);
             $lname = mysqli_real_escape_string($conn, $lname );
@@ -36,17 +35,16 @@ if($conn){
 			$title= mysqli_real_escape_string($conn,$title);
 			$companyName = mysqli_real_escape_string($conn,$companyName);
 			$companySize = mysqli_real_escape_string($conn,$companySize);
-			$status = mysqli_real_escape_string($conn,$status);
 			$password== mysqli_real_escape_string($conn,$password);
 
             $stmt = mysqli_stmt_init($conn);
 			if(!mysqli_stmt_prepare($stmt, $query)){
                die(mysqli_error($conn));
             }else{
-                mysqli_stmt_bind_param($stmt,"ssssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize,$status,$password);
+                mysqli_stmt_bind_param($stmt,"sssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize,$password);
 
                 if($stmt->execute()){
-                echo  "successfully added a member!";
+                echo  "Your application has been submitted!";
                 }
                 else {
                     $output="Could not create Member. Please Try again.";
@@ -57,11 +55,11 @@ if($conn){
 		}
 	}
 	else{
-		echo "fill in the required details";
+		echo "Please fill in the required details";
 	}
 
 }else{
-	echo "no coonnection";
+	echo "No connection";
 }
 mysqli_close($conn);
 die();

@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>AUHF - Member Application</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,11 +34,13 @@
                 mm = '0'+mm
             } 
 
-            today = yyyy + '-' + mm + '-' + dd;
+            today = yyyy + '/' + mm + '/' + dd;
 
             console.log(today);
             document.getElementById('joinDate').value = today;
+           // alert(today)
         }
+       
     </script>
 
 </head>
@@ -56,15 +59,15 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <img class="auhfLogo" src="assets/images/logo.png">
-                <a class="navbar-brand" href="index.html"><h2>AU<em>HF</em></h2></a>
+                <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="AddEvent.html">
-                                Join AUHF
+                            <a class="nav-link active" href="createM.html">
+                                Add Member
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -77,6 +80,11 @@
     <!-- Page Content -->
 
     <div class="page-headingAddEvent">
+        <div class="sidebar">
+            <a href="">All Members</a>
+            <a class="active" href="createM.html">Add Member</a>
+            <a href="">Correspondences</a>
+          </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -95,7 +103,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <fieldset>
                                         <label for="joinDate">Join Date:</label>
-                                        <input name="joinDate" type="date" class="form-control" id="joinDate" disabled>
+                                        <input name="joinDate" type="date" class="form-control" id="joinDate">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
@@ -126,13 +134,13 @@
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                 <fieldset>
-                                    <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name" required="">
+                                    <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name">
                                 </fieldset>
                             </div>
 
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                 <fieldset>
-                                    <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size" required="">
+                                    <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
                                 </fieldset>
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
@@ -142,7 +150,7 @@
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                 <fieldset>
-                                    <select class="form-control" id="eventCountry" name="eventCountry" required>
+                                    <select class="form-control" id="country" name="country" required>
                                         <option value="" disabled selected hidden>Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
@@ -391,7 +399,6 @@
                                     </select>
                                 </fieldset>
                             </div>
-
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                 <fieldset>
                                     <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
@@ -440,11 +447,11 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/afri/AUHF/Afrihost/assets/Php/createmember.php");
+            xhr.open("POST", "http://localhost/AUHF/Afrihost/assets/Php/createmember.php");
 
             xhr.onload = function () {
                 alert(xhr.responseText);
-                window.location.assign("index.html");
+                window.location.assign("AdminPage.html");
             };
 
             xhr.send(new FormData(myform));

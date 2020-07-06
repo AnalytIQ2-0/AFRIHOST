@@ -110,6 +110,19 @@ a.filled-button:hover {
 	margin-right: 0px;
 }
 
+.dashboard {
+	width:1200px;
+	height:680px;
+	display:block;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	margin-left: 150px;
+	margin-right: 10px;
+	
+	
+	
+}
+
 
 .page-heading {
 	padding: 210px 0px 130px 0px;
@@ -251,12 +264,13 @@ header {
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
-header .navbar {
+header .navbar .subnav{
 	padding: 17px 0px;
 }
-.background-header .navbar {
+.background-header .navbar .subnav{
 	padding: 17px 0px;
 }
+
 .background-header {
 	top: 0;
 	position: fixed;
@@ -277,6 +291,12 @@ header .navbar {
 	color: #152688!important;
 }
 .navbar .navbar-brand {
+	float: 	left;
+	margin-top: -12px;
+	outline: none;
+	
+}
+.subnav .navbar-brand {
 	float: 	left;
 	margin-top: -12px;
 	outline: none;
@@ -307,6 +327,10 @@ header .navbar {
 	margin: 0px 15px;
 	display: inline-block;
 }
+.subnav .navbar-nav .nav-item {
+	margin: 0px 15px;
+	display: inline-block;
+}
 .navbar .navbar-nav a.nav-link {
 	text-transform: capitalize;
 	font-size: 15px;
@@ -316,11 +340,21 @@ header .navbar {
 	transition: all 0.5s;
 	margin-top: 5px;
 }
+
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .active>.nav-link,
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
+	color: rgb(3, 12, 139);
+	padding-bottom: 25px;
+	border-bottom: 3px solid #a81010;
+}
+.subnav .navbar-nav .nav-link:hover,
+.subnav .navbar-nav .active>.nav-link,
+.subnav .navbar-nav .nav-link.active,
+.subnav .navbar-nav .nav-link.show,
+.subnav .navbar-nav .show>.nav-link {
 	color: rgb(3, 12, 139);
 	padding-bottom: 25px;
 	border-bottom: 3px solid #a81010;
@@ -1132,6 +1166,9 @@ footer .inner-content p a {
 	-o-border-radius: 5px;
 	cursor: pointer;
 }
+.member-dropdown{
+margin-bottom: 25px;
+}
 .contact-form select:focus {
 	box-shadow: none;
 	border: 1px solid rgb(6, 48, 104);
@@ -1152,8 +1189,78 @@ footer .inner-content p a {
 	margin-top: 15px;
 	text-align: left;
 }
+.calicon{
+	padding-left: 150px; 
+	color: black; 
+	min-width: 50px; 
+	margin-top: 15px;
+	text-align: left;
+}
 .show-icon{
 	width: 100%;
 
 }
 
+.contact-form label{
+display: block;
+font-size: 14px;
+color: rgb(94, 93, 93);
+}
+
+
+/* The side navigation menu */
+.page-headingAddEvent .sidebar {
+	width: 180px;
+	background-color: rgb(126, 14, 14);
+	position: absolute;
+	height: 200px;
+	overflow: auto;
+
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+	display: block;
+	color: rgb(250, 245, 245);
+	padding: 16px;
+	text-decoration: none;
+	size: 20px;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+	background-color: #68a8f1;
+	color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+	background-color: #68a8f1;
+	color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+	margin-left: 200px;
+	padding: 1px 16px;
+	height: 1000px;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+	.sidebar {
+	  width: 100%;
+	  height: auto;
+	  position: relative;
+	}
+	.sidebar a {float: left;}
+	div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+	.sidebar a {
+	  text-align: center;
+	  float: none;
+	}
+  }
