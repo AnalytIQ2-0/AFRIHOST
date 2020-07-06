@@ -884,13 +884,17 @@ footer .inner-content p a {
 	display: inline-block;
 	line-height: 42px;
 	border: 1px solid #eee;
-	border-radius: 0px;
+	border-radius: 5px;
 	margin-bottom: 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .contact-form input:focus {
 	box-shadow: none;
-	border: 1px solid #eee;
+	color: rgb(51, 51, 51);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -916,7 +920,7 @@ footer .inner-content p a {
 
 .contact-form textarea:focus {
 	box-shadow: none;
-	border: 1px solid #eee;
+	border: 1px solid rgb(24, 55, 156);
 }
 
 .contact-form button.filled-button {
@@ -931,6 +935,7 @@ footer .inner-content p a {
 	transition: all 0.3s;
 	border: none;
 	outline: none;
+	margin-top: 20px;
 	cursor: pointer;
 }
 
@@ -1104,3 +1109,51 @@ footer .inner-content p a {
 		bottom: 0;
 	}
 }
+.dropdown{
+	position: relative;
+}
+.contact-form select{
+	line-height: 42px;
+	border: 1px solid #eee;
+	font-size: 14px;
+	width: 100%;
+	height: 44px;
+	display: inline-block;
+	margin-bottom: 45px;
+	color: #757679;
+	text-align: left;
+	list-style: none;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	cursor: pointer;
+}
+.contact-form select:focus {
+	box-shadow: none;
+	border: 1px solid rgb(6, 48, 104);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+.show-icon i{
+	position: absolute;
+}
+.icon{
+	padding-left: 550px; 
+	color: black; 
+	min-width: 50px; 
+	margin-top: 15px;
+	text-align: left;
+}
+.show-icon{
+	width: 100%;
+
+}
+
