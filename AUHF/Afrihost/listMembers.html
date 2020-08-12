@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Create Correspondences</title>
+    <title>list members</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
 
 </head>
-<body>
+<body >
 
     <div id="preloader">
         <div class="jumper">
@@ -38,7 +38,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="AdminPage.html">
-                                Home
+                                Back
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -54,40 +54,25 @@
                 <div class="contact-form">
                     <form id="memberConvo" enctype="multipart/form-data" method="post">
                         <div class="row">
-                            <div class="col-md-12">
+                          <div class="col-md-12">
                                 <div class="section-heading">
-                                    <h2>Correspondences</h2>
+                                    <h2>All Members</h2>
                                 </div>
                                 <br>
                             </div>
-
-                            <div id="details" class="col-lg-10 col-md-10 col-sm-10">
-
-                                  <input name="member_ID" type="text" class="form-control" id="memberID" placeholder="member's id" hidden/>
-
-
-                                  <label for="firstName">First name</label>
-                                  <input name="firstName" type="text" class="form-control" id="fname" placeholder="member's first name" disabled/>
-
-                                  <br>
-                                  <label for="lastName">Last name</label>
-                                  <input name="lastName" type="text" class="form-control" id="lname" placeholder="member's last name" disabled/>
-                                  <br>
-
-                                  <label for="subject">Subject</label>
-                                  <input name="subject" type="text" class="form-control" id="subject" placeholder="subject" required/>
-                                  <br>
-                            </div>
-
-                            <div class="col-lg-10 col-md-10 col-sm-10">
-                                  <label for="imgage">Conversation Screenshort</label>
-                                  <input name="image" type="file" class="form-control" id="image" placeholder="" required=""/>
-                                  <br>
-                            </div>
-
-                            <div class="col-lg-10">
-                                    <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success" width="200"/>
-                                <br><br/>
+                            <div id="details" class="table-bordered">
+                                <table class="table" id="allMembers">
+                                    <thead class="thead-member">
+                                        <tr>
+                                            <th class="col1">Member ID</th>
+                                            <th class="col2">First name</th>
+                                            <th class="col3">Last name</th>
+                                            <th class="col4">Status</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="displayMembers">
+                                      </tbody>
+                                </table>
                             </div>
                         </div>
                     </form>
@@ -97,48 +82,20 @@
 
     </div>
     <script>
-    // this is for inserting image to the database
-        let myform = document.getElementById('memberConvo');
-        myform.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/github/AUHF/Afrihost/PHPs/createCorres.php");
-            xhr.onload = function () {
-
-                if(!xhr.responseText.localeCompare("insert ok")){
-                  alert("successful");
-                  window.location.assign("AdminPage.html");
+        function parseMid(){
+            var table = document.getElementById('allMembers'),rIndex;
+            for(var i=0; i < table.rows.length;++i){
+                table.rows[i].onclick=function(){
+                  rIndex = this.rowIndex;
+                  var hold1 = this.cells[0].innerHTML;
+                  var hold2 = hold1.split(">");
+                  var hold3 = hold2[1].split("<");
+                  localStorage.setItem("Member_Fname",this.cells[1].innerHTML);
+                  localStorage.setItem("Member_Lname",this.cells[2].innerHTML);
+                  localStorage.setItem("Member_ID",hold3[0]);
                 }
-                else{
-                  alert(xhr.responseText);
-                  window.location.assign("createCorres.html");
-                }
-                //testing
-                //alert(xhr.responseText);
             }
-            xhr.send(new FormData(myform));
-        });
-
-
-    </script>
-    <script>
-        $(document).ready(function(){
-          $('#insert').click(function(){
-              var image_name = $('#image').val();
-              if(image_name ==''){
-                alert("Please select an image.");
-                return false;
-              }
-              else{
-                var ext = $('#image').val().split('.').pop().toLowerCase();
-                if(jQuery.inArray(ext, ['jpeg','png','gif','jpg','jfif'])==-1){
-                  alert("Invalid image file");
-                  $('#image').val('');
-                  return false;
-                }
-              }
-          });
-        });
+        }
     </script>
     <footer>
         <div class="container">
@@ -167,7 +124,7 @@
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
-    <script src="js/preloadCorres.js"></script>
+    <script src="js/listMembers.js"></script>
 
 
     <script language="text/Javascript">
