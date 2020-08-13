@@ -14,6 +14,32 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/stylesUI.css.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        form.searchBtn input[type=text]{
+            padding: 10px;
+            forn-size: 17PX;
+            border: 1px solid grey;
+            float: left;
+            width: 40%;
+            background: #f1f1f1;
+        }
+
+        form.searchBtn button{
+            padding: 10px;
+            forn-size: 17PX;
+            border: 1px solid grey;
+            float: left;
+            width: 20%;
+            color: white;
+            background: #2196F3;
+            cursor: pointer;
+            border-left: none;
+        }
+        form.searchBtn button:hover{
+          background: #0b7dda;
+        }
+    </style>
 
 </head>
 <body >
@@ -52,14 +78,23 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="contact-form">
+
+
                     <form id="memberConvo" enctype="multipart/form-data" method="post">
                         <div class="row">
                           <div class="col-md-12">
                                 <div class="section-heading">
                                     <h2>All Members</h2>
                                 </div>
+                                <form class="searchBtn">
+                                    <div>
+                                      <input name="search" type="text" class="form-control" id="searchMember" placeholder="search member by email address"/>
+                                      <button name"search" type="submit" class="form-control">Search<i class="fa fa-search"></i></button>
+                                    </div>
+                                </form>
                                 <br>
                             </div>
+
                             <div id="details" class="table-bordered">
                                 <table class="table" id="allMembers">
                                     <thead class="thead-member">
@@ -67,7 +102,10 @@
                                             <th class="col1">Member ID</th>
                                             <th class="col2">First name</th>
                                             <th class="col3">Last name</th>
-                                            <th class="col4">Status</th>
+                                            <th class="col4">Email address</th>
+                                            <th class="col5">Contact numbers</th>
+                                            <th class="col6">Country</th>
+                                            <th class="col7">Status</th>
                                         </tr>
                                       </thead>
                                       <tbody id="displayMembers">

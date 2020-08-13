@@ -74,11 +74,11 @@
                                   <br>
                             </div>
                             <div class="container" id="displayRCorres">
-
+                                <!-- please for picturessss-->
 
                             </div><br><br>
                             <div class="col-lg-10">
-                                    <input type="submit" onclick="http://localhost/github/AUHF/Afrihost/createCorres.html" name="submit" id="insert" value="New Correspondences" class="btn btn-success" width="200"/>
+                                    <button type="submit" name="submit" id="insert" value="New Correspondences" onclick="parseMID()"class="btn btn-success"><a href="http://localhost/github/AUHF/Afrihost/createCorres.html">New Correspondences</a></button>
                                 <br><br/>
                             </div>
                         </div>
@@ -117,6 +117,15 @@
     <script src="assets/js/accordions.js"></script>
     <script src="js/getRecentCorres.js"></script>
     <script src="js/preloadCorres.js"></script>
+    <script>
+    function parseMID(){
+          var memberID = localStorage.getItem("Member_ID");
+          var memberIdInt = parseInt(memberID);
+          localStorage.setItem("Member_Fname",localStorage.getItem("Member_Fname"));
+          localStorage.setItem("Member_Lname",localStorage.getItem("Member_Lname"));
+          localStorage.setItem("Member_ID",memberIdInt);
+    }
+    </script>
 
     <script language="text/Javascript">
 

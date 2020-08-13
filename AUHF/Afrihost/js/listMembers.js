@@ -20,8 +20,11 @@ function HtmlOutput(data){
     for(i =0; i <data.length;i++){
       htmlString += '<tr><td class=col1 onclick="parseMid()"><a href="viewCorres.html" >'+data[i].member_id+
       '</a></td><td class="col2">'+data[i].member_fname+
-      '</td><td class="col2">'+data[i].member_lname+
-      '</td><td class="col2">'+data[i].member_status+
+      '</td><td class="col3">'+data[i].member_lname+
+      '</td><td class="col3">'+data[i].member_email+
+      '</td><td class="col3">'+data[i].member_contactNo+
+      '</td><td class="col3">'+data[i].member_country+
+      '</td><td class="col4">'+data[i].member_status+
       '</td></tr>';
     }
   }

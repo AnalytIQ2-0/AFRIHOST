@@ -14,6 +14,7 @@ if($conn){
 	$email=$_POST["email"];
 	$joinDate=$_POST["joinDate"];
 	$title=$_POST["title"];
+	$status = $_POST["status"];
 	$companyName=$_POST["companyName"];
 	$companySize=$_POST["companySize"];
 	$password=$_POST["password"];
@@ -23,7 +24,7 @@ if($conn){
             echo ("This member already exists.");
         }
 		else{
-            $query ="INSERT INTO MEMBER (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            $query ="INSERT INTO MEMBER (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_status,member_companySize,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
             $fname=mysqli_real_escape_string($conn, $fname);
             $lname = mysqli_real_escape_string($conn, $lname );
@@ -35,13 +36,14 @@ if($conn){
 			$title= mysqli_real_escape_string($conn,$title);
 			$companyName = mysqli_real_escape_string($conn,$companyName);
 			$companySize = mysqli_real_escape_string($conn,$companySize);
-			$password== mysqli_real_escape_string($conn,$password);
+			$password= mysqli_real_escape_string($conn,$password);
+			$status= mysqli_real_escape_string($conn,$status);
 
             $stmt = mysqli_stmt_init($conn);
 			if(!mysqli_stmt_prepare($stmt, $query)){
                die(mysqli_error($conn));
             }else{
-                mysqli_stmt_bind_param($stmt,"sssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize,$password);
+                mysqli_stmt_bind_param($stmt,"ssssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$status,$companySize,$password);
 
                 if($stmt->execute()){
                 echo  "Your application has been submitted!";
