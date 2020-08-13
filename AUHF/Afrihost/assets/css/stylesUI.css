@@ -20,7 +20,16 @@ p {
 	color: #615c5c;
 	line-height: 24px;
 }
-
+.p-tip {
+	margin-bottom: 0px;
+	margin-top: 3px;
+	font-size: 15px;
+	font-weight: 300;
+	color: rgb(83, 34, 34);
+	line-height: 24px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+}
 a {
 	text-decoration: none!important;
 }
@@ -132,7 +141,7 @@ a.filled-button:hover {
 	background-size: cover;
 }
 .page-headingAddEvent {
-	padding: 100px 5px 100px 0px;
+	padding: 90px 5px 90px 0px;
 	left: 0;
 }
 .page-headingAddEvent h3 {
@@ -662,8 +671,9 @@ footer {
 
 footer .inner-content {
 	border-top: 1px solid #eee;
-	margin-top: 60px;
+	margin-top: 200px;
 	padding: 60px 0px;
+	bottom: 0px;
 }
 
 footer .inner-content p {
@@ -675,7 +685,11 @@ footer .inner-content p a {
 	margin-left: 3px;
 }
 
-
+/*floater*/
+.rightAlign{
+	margin-left: auto;
+	margin-right: 0px;
+}
 
 
 /* Product Page */
@@ -1154,7 +1168,7 @@ footer .inner-content p a {
 	height: 44px;
 	display: inline-block;
 	margin-bottom: 45px;
-	color: #757679;
+	color: #535151;
 	text-align: left;
 	list-style: none;
 	background-color: #fff;
@@ -1264,3 +1278,22 @@ color: rgb(94, 93, 93);
 	  float: none;
 	}
   }
+
+  .dropdown-item{
+	display: block;
+	width: 100%;
+	padding: .25rem 1.5rem;
+	clear: both;
+	font-weight: 500;
+	color: #2e0cc7;
+	text-align: inherit;
+	white-space: nowrap;
+	background-color: transparent;
+	border: 0;
+	size: 15px;
+  }
+  .dropdown-item:hover{
+	color: rgb(218, 33, 33);
+	background-color: rgb(205, 219, 221);
+  }
+
