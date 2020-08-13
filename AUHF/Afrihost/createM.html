@@ -23,16 +23,16 @@
             var today = new Date();
 
             var dd = today.getDate();
-            var mm = today.getMonth()+1; 
+            var mm = today.getMonth()+1;
             var yyyy = today.getFullYear();
 
             if(dd<10) {
                 dd = '0'+dd
-            } 
+            }
 
             if(mm<10) {
                 mm = '0'+mm
-            } 
+            }
 
             today = yyyy + '/' + mm + '/' + dd;
 
@@ -40,7 +40,7 @@
             document.getElementById('joinDate').value = today;
            // alert(today)
         }
-       
+
     </script>
 
 </head>
@@ -67,6 +67,18 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="createM.html">
+                                All members
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="createCorres.html">
+                                Correspondences
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="createM.html">
                                 Add Member
                                 <span class="sr-only">(current)</span>
                             </a>
@@ -80,6 +92,11 @@
     <!-- Page Content -->
 
     <div class="page-headingAddEvent">
+        <div class="sidebar">
+            <a href="">All Members</a>
+            <a class="active" href="createM.html">Add Member</a>
+            <a href="createCorres.html">Correspondences</a>
+          </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -96,9 +113,12 @@
                     <form id="memberDetails" action="http://localhost/afri/AUHF/Afrihost/assets/Php/createmember.php" method="post">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
+                              <br>
+                              <br>
+                              <br>
                                 <fieldset>
                                         <label for="joinDate">Join Date:</label>
-                                        <input name="joinDate" type="date" class="form-control" id="joinDate">
+                                        <input name="joinDate" type="date" class="form-control" id="joinDate"/>
                                 </fieldset>
                             </div>
                             <div class="col-md-10">
