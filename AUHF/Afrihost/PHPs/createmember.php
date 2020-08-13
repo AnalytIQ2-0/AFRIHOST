@@ -1,8 +1,8 @@
 <?php
 
-$username = "root";
+$username = "afriHost";
 $database = "afrihost";
-$password = "";
+$password = "MmkVsOqwyNMy1Kf2";  
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 if($conn){
