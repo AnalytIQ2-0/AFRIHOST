@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -10,14 +11,16 @@
 
     <title>Create Correspondences</title>
 
+    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/stylesUI.css.css">
+    <link rel="stylesheet" href="assets/css/stylesUI.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+
 
 </head>
 <body>
-
+    <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
             <div></div>
@@ -25,20 +28,21 @@
             <div></div>
         </div>
     </div>
+    <!-- ***** Preloader End ***** -->
 
     <header class="">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <img class="auhfLogo" src="assets/images/logo.png" width="175" height="200">
-                <a class="navbar-brand" href="index.html"><h2>AU<em>HF</em></h2></a>
+                <img class="auhfLogo" src="assets/images/logo.png">
+                <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="AdminPage.html">
-                                Home
+                            <a class="nav-link active" href="listMembers.html">
+                                home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -48,46 +52,64 @@
         </nav>
     </header>
 
+    <!-- Page Content -->
+
+    <div class="page-headingAddEvent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Correspondences</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="contact-form">
-                    <form id="memberConvo" enctype="multipart/form-data" method="post">
+                    <form id="memberCorres" method="post">
                         <div class="row">
-                            <div class="col-md-12">
+
+                            <div class="col-md-10">
                                 <div class="section-heading">
-                                    <h2>Correspondences</h2>
+                                    <h2>Correspondences details</h2>
                                 </div>
-                                <br>
                             </div>
-
-                            <div id="details" class="col-lg-10 col-md-10 col-sm-10">
-
-                                  <input name="member_ID" type="text" class="form-control" id="memberID" placeholder="member's id" hidden/>
-
-
-                                  <label for="firstName">First name</label>
-                                  <input name="firstName" type="text" class="form-control" id="fname" placeholder="member's first name" disabled/>
-
-                                  <br>
-                                  <label for="lastName">Last name</label>
-                                  <input name="lastName" type="text" class="form-control" id="lname" placeholder="member's last name" disabled/>
-                                  <br>
-
-                                  <label for="subject">Subject</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                              <fieldset>
+                              <h5 for="lname">Member's name: </h5>
+                            </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <fieldset>
+                                    <input name="lastName" type="text" class="form-control" id="lname" placeholder="member's last name" disabled/>
+                                </fieldset>
+                            </div>
+                            <br>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <h5 for="subject">Conversation subject: </h5>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <fieldset>
                                   <input name="subject" type="text" class="form-control" id="subject" placeholder="subject" required/>
-                                  <br>
+                                </fieldset>
                             </div>
-
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <fieldset>
+                                  <input name="member_ID" type="text" class="form-control" id="memberID" placeholder="member's id" hidden/>
+                                </fieldset>
+                            </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
-                                  <label for="imgage">Conversation Screenshort</label>
+                                  <h5 for="imgage">Conversation Screenshort: </h5>
                                   <input name="image" type="file" class="form-control" id="image" placeholder="" required=""/>
                                   <br>
                             </div>
 
                             <div class="col-lg-10">
-                                    <input type="submit" name="insert" id="insert" value="insert" class="btn btn-success" width="200"/>
-                                <br><br/>
+                                <fieldset>
+                                    <button type="submit" id="membersubmit" class="filled-button">Submit Application</button>
+                                </fieldset>
                             </div>
                         </div>
                     </form>
@@ -96,9 +118,10 @@
         </div>
 
     </div>
+
     <script>
     // this is for inserting image to the database
-        let myform = document.getElementById('memberConvo');
+        let myform = document.getElementById('memberCorres');
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
@@ -140,6 +163,7 @@
           });
         });
     </script>
+
     <footer>
         <div class="container">
             <div class="row">

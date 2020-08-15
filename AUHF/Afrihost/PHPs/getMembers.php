@@ -1,7 +1,7 @@
 <?php
-$username = "afriHost";
+$username = "root";
 $database = "afrihost";
-$password = "MmkVsOqwyNMy1Kf2";  
+$password = "";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $json = array();
@@ -22,7 +22,7 @@ if(!empty($json)){
     $res ="There are no members";
     echo json_encode($res);
 }
-    
+
 } else {
 echo "Connection Error!";
 }

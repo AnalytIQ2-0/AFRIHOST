@@ -23,16 +23,16 @@
             var today = new Date();
 
             var dd = today.getDate();
-            var mm = today.getMonth()+1; 
+            var mm = today.getMonth()+1;
             var yyyy = today.getFullYear();
 
             if(dd<10) {
                 dd = '0'+dd
-            } 
+            }
 
             if(mm<10) {
                 mm = '0'+mm
-            } 
+            }
 
             today = yyyy + '/' + mm + '/' + dd;
 
@@ -40,7 +40,7 @@
             document.getElementById('joinDate').value = today;
            // alert(today)
         }
-       
+
     </script>
 
 </head>
@@ -68,6 +68,12 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="createM.html">
                                 Add Member
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AdminPage.html">
+                                Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -106,10 +112,11 @@
                                     <h2>Membership Details</h2>
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="title"> Membership Type*</label>
                                     <select name="title" id="title" class="form-control" required>
                                         <option value="" disabled selected hidden>Membership Type</option>
                                         <option value="Individual">Individual</option>
@@ -119,32 +126,38 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="fname"> First name*</label>
                                     <input name="fname" type="text" class="form-control" id="fName" placeholder="First Name" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="lname">Last name*</label>
                                     <input name="lname" type="text" class="form-control" id="lName" placeholder="Last Name" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="companyName">Company name</label>
                                     <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name">
                                 </fieldset>
                             </div>
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="companySize"> Company size</label>
                                     <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="city"> City*</label>
                                     <input name="city" type="text" class="form-control" id="city" placeholder="City" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="country">Country*</label>
                                     <select class="form-control" id="country" name="country" required>
                                         <option value="" disabled selected hidden>Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -397,12 +410,14 @@
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="contactNo">Contact numbers*</label>
                                     <input name="contactNo" type="text" class="form-control" id="contactNo" placeholder="Contact Number" required="">
                                 </fieldset>
                             </div>
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
+                                  <label for="email">Email address*</label>
                                     <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
                                 </fieldset>
                             </div>
@@ -414,11 +429,13 @@
                             <div class="d-flex ">
                                 <div class="col-md-6 col-sm-6">
                                     <fieldset>
+                                      <label for="password">Password*</label>
                                         <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <fieldset>
+                                      <label for="confirmPass">Confirm password*</label>
                                         <input name="confirmPass" type="password" class="form-control" id="confirmPass" placeholder="Comfirm Password" required="">
                                     </fieldset>
                                 </div>

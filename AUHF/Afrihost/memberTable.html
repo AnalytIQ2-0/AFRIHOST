@@ -24,26 +24,32 @@
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper"></div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
             <!-- Header -->
             <header class="">
                 <nav class="navbar navbar-expand-lg" id="mainNavbar">
                     <div class="container">
-                        <img class="auhfLogo" src="assets/images/logo.png" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" >  
+                        <img class="auhfLogo" src="assets/images/logo.png" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" >
                         <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarResponsive">         
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="memberTable.html">Members
                                     <span class="sr-only">(current)</span>
                                     </a>
-                                </li> 
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="createM.html">Add Member</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="listMembers.html">Correspondences</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="AdminPage.html">Home</a>
                                 </li>
                             </ul>
                         </div>
@@ -59,11 +65,11 @@
                         </div>
                         <div class="p-tip">Please select the Member ID to view a member.</div>
                     </div>
-                </div>  
+            </div>
             </div>
                 <div class="container">
                     <div class="page-scroll">
-                        
+
                             <div class="row">
                               <div class="col-md-5 col-sm-5">
                                 <input class="form-control mb-4" id="tableSearch" type="search" placeholder="Member Search..." title="Search">
@@ -76,13 +82,13 @@
                                                     <table id ="memTable" class="table">
                                                         <thead class="table-header">
                                                             <tr class="table-header">
-                                                                <th class="col6">Member Id</th>
-                                                                <th class="col1">Title</th>
-                                                                <th class="col4">Name</th>
+                                                                <th class="col1">Member Id</th>
+                                                                <th class="col2">Title</th>
+                                                                <th class="col3">Name</th>
                                                                 <th class="col4">Company Name</th>
-                                                                <th class="col3">Country</th>
-                                                                <th class="col4">Email</th>
-                                                                <th class="col5">Status</th>  
+                                                                <th class="col5">Country</th>
+                                                                <th class="col6">Email</th>
+                                                                <th class="col7">Status</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="tableBody">
@@ -96,12 +102,12 @@
                                                 for(var i=1;i<table.rows.length;++i ){
                                                   table.rows[i].onclick=function(){
                                                     rIndex=this.rowIndex;
-                                                    var memId= this.cells[0].innerHTML;    
+                                                    var memId= this.cells[0].innerHTML;
                                                     //This is to get the member id
                                                     var hold = memId.split(">");
                                                     var hold2 = hold[1].split("<");
-                                                    localStorage.setItem("memberId",hold2[0]);
-                                                     
+                                                    sessionStorage.setItem("memberId",hold2[0]);
+
                                                   }
                                                 }
                                               }
@@ -124,7 +130,7 @@
                                                     } else {
                                                         rows[i].style.display = "none";
                                                     }
-                                                }      
+                                                }
                                             }
                                             document.getElementById('tableSearch').addEventListener('keyup', filterTable, false);
                                           </script>
@@ -132,7 +138,7 @@
                                         </form>
                                     </div>
                                 </div>
-                    
+
                         </div>
                     </div>
                 </div>
@@ -143,7 +149,7 @@
                 <div class="col-md-12">
                   <div class="inner-content">
                     <p>Copyright &copy; 2020 AnalytIQ Project, Ltd.
-                  
+
                   - Design: <a rel="nofollow noopener" href="" target="_blank">AFRIHOST</a></p>
                   </div>
                 </div>
@@ -162,7 +168,7 @@
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
 
-    <script language = "text/Javascript"> 
+    <script language = "text/Javascript">
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
       if(! cleared[t.id]){                      // function makes it static and global
@@ -171,7 +177,7 @@
           t.style.color='#fff';
           }
       }
-    </script>    
-      
+    </script>
+
   </body>
 </html>

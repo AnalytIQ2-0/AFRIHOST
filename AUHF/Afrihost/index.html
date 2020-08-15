@@ -18,12 +18,11 @@
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/stylesUI.css">
     <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/loginM.css">
-
+ 
 </head>
 
   <body>
-       
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -31,14 +30,14 @@
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <img class="auhfLogo" src="assets/images/logo.png">  
+          <img class="auhfLogo" src="assets/images/logo.png">
           <a class="navbar-brand" href="index.html"><h2>AU<em>HF</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,7 +62,7 @@
                   <li class="nav-item">
                       <a class="nav-link" href="">Mailing List</a>
                   </li>
-                  <li class="nav-item" onclick="document.getElementById('id01').style.display='block'">
+                  <li class="nav-item" >
                       <a class="nav-link" >Login</a>
                   </li>
               </ul>
@@ -216,40 +215,7 @@
             }
         </script>
 
-        <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">                
 
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
-
-        <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
 </body>
 
 </html>

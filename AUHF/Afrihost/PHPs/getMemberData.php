@@ -1,7 +1,7 @@
 <?php
-$username = "afriHost";
+$username = "root";
 $database = "afrihost";
-$password = "MmkVsOqwyNMy1Kf2";  
+$password = "";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $mem_id = $_REQUEST["member_id"];
@@ -27,7 +27,7 @@ if ($conn) {
         $res ="Member Non-existent";
         echo json_encode($res);
     }
-        
+
 } else {
     echo "Connection Error!";
 }

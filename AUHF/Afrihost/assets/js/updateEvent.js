@@ -1,8 +1,8 @@
 window.addEventListener("load", function(){
     var urlform = new XMLHttpRequest();
-    var even_id = localStorage.getItem("eventId");
+    var even_id = sessionStorage.getItem("eventId");
 
-    urlform.open('GET', "http://localhost/AUHF/Afrihost/PHPs/getEventData.php/?event_id="+even_id);
+    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getEventData.php/?event_id="+even_id);
     urlform.onload = function () {
         var Data = JSON.parse(urlform.responseText);
         loadEventData(Data);
@@ -36,9 +36,9 @@ function loadEventData(Edata){
         document.getElementById('eventVenue').value = venue;
         document.getElementById('eventStr').value = str;
         document.getElementById('eventSuburb').value = sub;
-        document.getElementById('eventCity').value = city; 
-        document.getElementById('eventProvince').value = prov; 
-        document.getElementById('eventCountry').value = country; 
+        document.getElementById('eventCity').value = city;
+        document.getElementById('eventProvince').value = prov;
+        document.getElementById('eventCountry').value = country;
     }
 
 }

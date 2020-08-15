@@ -22,7 +22,7 @@
     </script>
 
 </head>
-<body onload="getToday()">
+<body onload="">
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -49,8 +49,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
-                                Correspondences
+                            <a class="nav-link" href="AdminPage.html" onclick="parseMemberIDCorres()">
+                                Home
                             </a>
                         </li>
                     </ul>
@@ -84,7 +84,7 @@
                                         <input name="joinDate" type="text" class="form-control" id="joinDate" disabled>
                                     </fieldset>
                                 </div>
-                                
+
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <fieldset>
                                             <label for="Memberid">Member ID:</label>
@@ -97,14 +97,14 @@
                                             <input name="status" type="text" class="form-control" id="status" disabled>
                                         </fieldset>
                                     </div>
-                                
+
                                 <div class="col-md-10">
                                     <div class="section-heading">
                                         <h2>Membership Details</h2>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
                                         <select name="title" id="title" class="form-control" required>
@@ -129,7 +129,7 @@
                                         <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name">
                                     </fieldset>
                                 </div>
-    
+
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
                                         <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
@@ -396,13 +396,13 @@
                                         <input name="contactNo" type="text" class="form-control" id="contactNo" placeholder="Contact Number" required="">
                                     </fieldset>
                                 </div>
-    
+
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
                                         <input name="email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                     </fieldset>
                                 </div>
-    
+
                                 <div class="col-lg-10">
                                     <fieldset>
                                         <button type="submit" id="membersubmit" class="filled-button">Save</button>
@@ -411,26 +411,32 @@
                             </div>
                             <script src="assets/js/updateMember.js"></script>
                             <script>
+                            function parseMemberIDCorres(){
+                              sessionStorage.setItem("Member_Fname",document.getElementById('fName').value);
+                              sessionStorage.setItem("Member_Lname",document.getElementById('lName').value);
+
+                                sessionStorage.setItem("member_ID",sessionStorage.getItem("memberId"));
+                            }
                                 let myform = document.getElementById('memberDetails');
-                                var mem_id = localStorage.getItem("memberId");
+                                var mem_id = sessionStorage.getItem("memberId");
                                 myform.addEventListener('submit', (e) => {
                                     e.preventDefault();
                                     let xhr = new XMLHttpRequest();
-                                    xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
-    
+                                    xhr.open("POST", "http://localhost/github/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
+
                                     xhr.onload = function () {
                                         alert(xhr.responseText);
                                     };
-    
+
                                     xhr.send(new FormData(myform));
-    
+
                                 });
                             </script>
                         </form>
                     </div>
                 </div>
             </div>
-    
+
         </div>
     </div>
 

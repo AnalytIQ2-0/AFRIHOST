@@ -1,7 +1,7 @@
-<?php 
-$username = "afriHost";
+<?php
+$username = "root";
 $database = "afrihost";
-$password = "MmkVsOqwyNMy1Kf2";  
+$password = "";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $member_id = $_REQUEST["member_id"];

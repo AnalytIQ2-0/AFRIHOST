@@ -1,9 +1,9 @@
 
 window.addEventListener("load", function(){
     var urlform = new XMLHttpRequest();
-    var mem_id = localStorage.getItem("memberId");
-   
-    urlform.open('GET', "http://localhost/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+mem_id);
+    var mem_id = sessionStorage.getItem("memberId");
+
+    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+mem_id);
     urlform.onload = function () {
         var resData = JSON.parse(urlform.responseText);
         loadMemberData(resData);
@@ -12,15 +12,15 @@ window.addEventListener("load", function(){
 });
 
 function loadMemberData(Sdata){
-   
+
     var hold = "";
     hold = Sdata[0].member_id;
     //memid.insertAdjacentHTML('beforeend', htmlstr);
-        
-      if (!hold.localeCompare("false")) { 
+
+      if (!hold.localeCompare("false")) {
         alert("Could not find member.");
       }else{
-                
+
         for(i = 0;i < Sdata.length; i++){
 
             var memberID = Sdata[i].member_id;
@@ -49,7 +49,7 @@ function loadMemberData(Sdata){
             document.getElementById("contactNo").setAttribute('value',phone);
             document.getElementById("Email").setAttribute('value',email);
 
-             
+
         }
 
     }

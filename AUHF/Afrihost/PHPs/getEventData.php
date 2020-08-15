@@ -1,7 +1,7 @@
 <?php
-$username = "afriHost";
+$username = "root";
 $database = "afrihost";
-$password = "MmkVsOqwyNMy1Kf2";  
+$password = "";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $event_id = $_REQUEST["event_id"];
@@ -27,7 +27,7 @@ if ($conn){
         $res ="Event Non-existent";
         echo $res;
     }
-        
+
 } else {
     echo "Connection Error!";
 }

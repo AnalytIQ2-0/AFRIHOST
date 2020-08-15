@@ -26,18 +26,18 @@
             <div></div>
             <div></div>
         </div>
-    </div>  
-   
+    </div>
+
 
     <header class="">
         <nav class="navbar navbar-expand-lg">
           <div class="container">
-            <img class="auhfLogo" src="assets/images/logo.png">  
+            <img class="auhfLogo" src="assets/images/logo.png">
             <a class="navbar-brand" href="index.html"><h2>AU<em>HF</em></h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">         
+            <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                   <a class="nav-link" href="Events.html">All Events</a>
@@ -46,7 +46,7 @@
                   <a class="nav-link" href="AddEvent.html">Add Event
                     <span class="sr-only">(current)</span>
                   </a>
-                </li> 
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="AdminPage.html">Home</a>
                 </li>
@@ -64,7 +64,7 @@
                     <h3>Create Event</h3>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 
     <form id="eventform">
@@ -112,16 +112,17 @@
                               </div>
                               <div class="col-lg-10">
                                 <fieldset>
+                                  <label for="eventDesc">Event description:</label>
                                   <textarea name="eventDesc" rows="6" class="form-control" id="eventDesc" placeholder="Event Description" required=""></textarea>
                                 </fieldset>
                               </div>
-                        
+
                               <div class="col-md-10">
                                 <div class="section-heading">
                                     <h2>Event Location</h2>
                                 </div>
                               </div>
-            
+
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventVenue">Event Venue:</label>
@@ -414,7 +415,7 @@
                     </div>
                 </div>
             </div>
-    
+
       </div>
     </form>
         <script>
@@ -422,17 +423,17 @@
             myform.addEventListener('submit', (e)=>{
               e.preventDefault();
               let xhr = new XMLHttpRequest();
-                 xhr.open("POST","http://localhost/AUHF/Afrihost/PHPs/addEvent.php");
+                 xhr.open("POST","http://localhost/github/AUHF/Afrihost/PHPs/addEvent.php");
 
-                 xhr.onload = function (){ 
+                 xhr.onload = function (){
                  alert(xhr.responseText);
                  window.location.assign("AddEvent.html");
                  };
-                 
+
                  xhr.send(new FormData(myform));
 
             });
-          
+
           </script>
 
 
@@ -442,7 +443,7 @@
             <div class="col-md-12">
               <div class="inner-content">
                 <p>Copyright &copy; 2020 AnalytIQ Project, Ltd.
-              
+
               - Design: <a rel="nofollow noopener" href="" target="_blank">AFRIHOST</a></p>
               </div>
             </div>
@@ -467,7 +468,7 @@
     <script src="assets/js/accordions.js"></script>
 
 
-    <script type = "text/Javascript"> 
+    <script type = "text/Javascript">
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
       if(! cleared[t.id]){                      // function makes it static and global

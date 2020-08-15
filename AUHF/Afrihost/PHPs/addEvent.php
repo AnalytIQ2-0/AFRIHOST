@@ -1,7 +1,7 @@
 <?php
-$username = "afriHost";
+$username = "root";
 $database = "afrihost";
-$password = "MmkVsOqwyNMy1Kf2"; 
+$password = "";
 $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $eventName = $_POST['eventName'];
@@ -23,8 +23,8 @@ if($conn){
         if($checkResult->num_rows > 0){
             echo ("Event already exists.");
         }else{
-            $query ="INSERT INTO EVENT (event_name,event_date,event_startTime,event_endTime,event_description,event_venueName,event_strAddress,event_suburb,event_city,event_province,event_country) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-
+            $query ="INSERT INTO EVENT (staff_id,event_name,event_date,event_startTime,event_endTime,event_description,event_venueName,event_strAddress,event_suburb,event_city,event_province,event_country) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            $s_id=1;
             $eventName=mysqli_real_escape_string($conn, $eventName);
             $eventDate = mysqli_real_escape_string($conn, $eventDate );
             $eventStart = mysqli_real_escape_string($conn, $eventStart);
@@ -41,7 +41,7 @@ if($conn){
             if(!mysqli_stmt_prepare($stmt, $query)){
                die(mysqli_error($conn));
             }else{
-                mysqli_stmt_bind_param($stmt,"sssssssssss",$eventName,$eventDate,$eventStart,$eventEnd,$eventDesc,$eventVenue,$eventStr,$eventSuburb,$eventCity,$eventProvince,$eventCountry);
+                mysqli_stmt_bind_param($stmt,"isssssssssss",$s_id,$eventName,$eventDate,$eventStart,$eventEnd,$eventDesc,$eventVenue,$eventStr,$eventSuburb,$eventCity,$eventProvince,$eventCountry);
 
                 if($stmt->execute()){
                 echo  "Event successfully created!";
@@ -52,7 +52,6 @@ if($conn){
                     die(mysqli_error($conn));
                 }
             }
-
         }
 
     }else{
