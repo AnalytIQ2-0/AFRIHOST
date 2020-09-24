@@ -8,6 +8,7 @@ $member_id = $_REQUEST["member_id"];
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $title = $_POST["title"];
+$status= $_POST["status"];
 $company = $_POST["companyName"];
 $size = $_POST["companySize"];
 $phone = $_POST["contactNo"];
@@ -17,7 +18,7 @@ $city = $_POST["city"];
 
 if($conn){
     if(isset($member_id, $title, $fname, $lname, $city, $country,$phone,$email)){
-        $query = "UPDATE MEMBER SET member_fname = '$fname', member_lname = '$lname',member_title = '$title',member_companyName='$company',member_companySize='$size',member_city='$city',member_country='$country',member_email='$email',member_contactNo='$phone' WHERE member_id = '$member_id'";
+        $query = "UPDATE MEMBER SET member_status='$status', member_fname = '$fname', member_lname = '$lname',member_title = '$title',member_companyName='$company',member_companySize='$size',member_city='$city',member_country='$country',member_email='$email',member_contactNo='$phone' WHERE member_id = '$member_id'";
         $queryResult = $conn->query($query);
         if($queryResult){
             $msg = "Update Successfull!";

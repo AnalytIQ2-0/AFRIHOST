@@ -15,21 +15,23 @@ if ($conn) {
             while($row = $qryRes->fetch_assoc()){
                 $json[] = $row;
             }
+            if(sizeof($json)<1){
+              $arr= array(array("member_id"=>"false"));
+                 echo json_encode($arr);
+            }else{
+                echo json_encode($json);
+            }
         }
     }else{
-        $r ="not set";
-        echo json_encode($r);
-    }
-    mysqli_close($conn);
-    if(!empty($json)){
-         echo json_encode($json);
-    }else{
-        $res ="Member Non-existent";
-        echo json_encode($res);
+      $arr= array(array("member_id"=>"false"));
+        echo json_encode($arr);
     }
 
 } else {
-    echo "Connection Error!";
+  $arr= array(array("member_id"=>"false"));
+  echo json_encode($arr);
 }
+mysqli_close($conn);
+die();
 
 ?>

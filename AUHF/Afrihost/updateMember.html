@@ -94,7 +94,12 @@
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <fieldset>
                                             <label for="status">Member Status:</label>
-                                            <input name="status" type="text" class="form-control" id="status" disabled>
+
+                                            <select name="status" tyoe="text" id="status" class="form-control" required>
+                                                <option value="" disabled selected hidden>Membership status</option>
+                                                <option value="PENDING">PENDING</option>
+                                                <option value="ACTIVE">ACTIVE</option>
+                                            </select>
                                         </fieldset>
                                     </div>
 
@@ -107,6 +112,7 @@
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="title">Membership Type:</label>
                                         <select name="title" id="title" class="form-control" required>
                                             <option value="" disabled selected hidden>Membership Type</option>
                                             <option value="Individual">Individual</option>
@@ -116,34 +122,40 @@
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="fname">First name:</label>
                                         <input name="fname" type="text" class="form-control" id="fName" placeholder="First Name" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="lname">Last name:</label>
                                         <input name="lname" type="text" class="form-control" id="lName" placeholder="Last Name" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="companyName">Company name:</label>
                                         <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name">
                                     </fieldset>
                                 </div>
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="companySize">Company size:</label>
                                         <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="city">City:</label>
                                         <input name="city" type="text" class="form-control" id="city" placeholder="City" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="country">Country:</label>
                                         <select class="form-control" id="country" name="country" required>
-                                            <option value="" disabled selected hidden>Country</option>
+                                            <option value="" >Country</option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Åland Islands">Åland Islands</option>
                                             <option value="Albania">Albania</option>
@@ -392,13 +404,14 @@
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
-                                    <fieldset>
+                                      <label for="contactNo">Contact number:</label>
                                         <input name="contactNo" type="text" class="form-control" id="contactNo" placeholder="Contact Number" required="">
                                     </fieldset>
                                 </div>
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="email">Email address:</label>
                                         <input name="email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                     </fieldset>
                                 </div>
