@@ -44,14 +44,8 @@
                               <span class="sr-only">(current)</span>
                           </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="listMembers.html">
-                                All members
-                                <span class="sr-only">(current)</span>
-                            </a>
-                          </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="AdminPage.html">
+                            <a class="nav-link" href="memberDash.html">
                                 Home
                                 <span class="sr-only">(current)</span>
                             </a>
@@ -82,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="section-heading">
-                                    <h2>Previous Correspondences</h2>
+                                    <h2>Latest Correspondences</h2>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-2 col-sm-2">
@@ -121,9 +115,9 @@
                                   </table>
                             </form>
                             </div><br><br>
-                            <div class="col-lg-10" >
+                            <div class="col-lg-10">
                                 <fieldset>
-                                    <button  type="submit" name="submit" id="insert" value="New Correspondences" onclick="parseMID()"  class="filled-button"><a href="createCorres.html">New Correspondences</a></button>
+                                    <button  type="submit" name="submit" id="insert" value="View more..." onclick="parseMID()"  class="filled-button"><a href="">View more correspondes...</a></button>
                                 </fieldset>
                             </div>
                         </div>
@@ -166,7 +160,7 @@
     <script src="js/preloadCorres.js"></script>
     <script>
     function parseMID(){
-          var memberID = sessionStorage.getItem("Member_ID");
+          var memberID = sessionStorage.getItem("memberId");
           var memberIdInt = parseInt(memberID);
           sessionStorage.setItem("Member_Fname",sessionStorage.getItem("Member_Fname"));
         sessionStorage.setItem("Member_Lname",sessionStorage.getItem("Member_Lname"));

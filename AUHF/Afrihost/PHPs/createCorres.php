@@ -14,7 +14,7 @@ if(!isset($_POST["insert"])){
       if(mysqli_query($conn,$query)){
         echo "insert ok";
       }else{
-        echo 'SQL ERROR';
+        echo 'Unsuccessful, please try again!';
       }
     }else{
       echo 'connection failed!';

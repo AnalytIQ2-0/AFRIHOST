@@ -49,13 +49,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="memberDash.html">
-                                Dashboard
+                            <a class="nav-link" href="">
+                                Payments
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="parseMeID()">
+                            <a class="nav-link" href="memberViewCorres.html">
+                                My Correspondences
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
-                                My Correspondences
+                            <a class="nav-link" href="memberDash.html">
+                                Back
                             </a>
                         </li>
                     </ul>
@@ -105,13 +110,14 @@
 
                                 <div class="col-md-10">
                                     <div class="section-heading">
-                                        <h2>Membership Details</h2>
+                                        <h2>Member Details</h2>
                                     </div>
                                 </div>
 
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="title">Membership Type:</label>
                                         <select name="title" id="title" class="form-control" required>
                                             <option value="" disabled selected hidden>Membership Type</option>
                                             <option value="Individual">Individual</option>
@@ -121,32 +127,38 @@
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="fname">First name:</label>
                                         <input name="fname" type="text" class="form-control" id="fName" placeholder="First Name" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="lname">Last name:</label>
                                         <input name="lname" type="text" class="form-control" id="lName" placeholder="Last Name" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="companyName">Company name:</label>
                                         <input name="companyName" type="text" class="form-control" id="companyName" placeholder="Company Name">
                                     </fieldset>
                                 </div>
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="companySize">Company size:</label>
                                         <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="city">City:</label>
                                         <input name="city" type="text" class="form-control" id="city" placeholder="City" required="">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="country">Country:</label>
                                         <select class="form-control" id="country" name="country" required>
                                             <option value="" disabled selected hidden>Country</option>
                                             <option value="Afghanistan">Afghanistan</option>
@@ -398,12 +410,14 @@
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="contactNo">Contact number:</label>
                                         <input name="contactNo" type="text" class="form-control" id="contactNo" placeholder="Contact Number" required="">
                                     </fieldset>
                                 </div>
 
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <fieldset>
+                                      <label for="email">Email address:</label>
                                         <input name="email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                     </fieldset>
                                 </div>
@@ -414,6 +428,17 @@
                                     </fieldset>
                                 </div>
                             </div>
+                            <script>
+                              function parseMeID(){
+                                var memberID = sessionStorage.getItem("memberId");
+                                var memberIdInt = parseInt(memberID);
+                                //alert(document.getElementById('fname').value);
+                                sessionStorage.setItem("Member_Fname",document.getElementById('fName').value);
+                                sessionStorage.setItem("Member_Lname",document.getElementById('lName').value);
+                                sessionStorage.setItem("Member_ID",memberIdInt);
+                              }
+                            </script>
+
                             <script src="assets/js/updateMember.js"></script>
                             <script>
                                 let myform = document.getElementById('memberDetails');
@@ -421,7 +446,7 @@
                                 myform.addEventListener('submit', (e) => {
                                     e.preventDefault();
                                     let xhr = new XMLHttpRequest();
-                                    xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
+                                    xhr.open("POST", "http://localhost/github/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
 
                                     xhr.onload = function () {
                                         alert(xhr.responseText);
@@ -459,14 +484,12 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
     <!-- Additional Scripts -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/owl.js"></script>
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
-
 
     <script language="text/Javascript">
 

@@ -2,8 +2,8 @@
 window.addEventListener("load", function(){
     var urlform = new XMLHttpRequest();
     var mem_id = sessionStorage.getItem("memberId");
-
-    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+mem_id);
+    //alert(mem_id);
+    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+parseInt(mem_id));
     urlform.onload = function () {
         var resData = JSON.parse(urlform.responseText);
         loadMemberData(resData);
@@ -16,7 +16,7 @@ function loadMemberData(Sdata){
     var hold = "";
     hold = Sdata[0].member_id;
     //memid.insertAdjacentHTML('beforeend', htmlstr);
-
+    //alert(hold);
       if (!hold.localeCompare("false")) {
         alert("Could not find member.");
       }else{
