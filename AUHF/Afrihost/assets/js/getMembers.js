@@ -3,14 +3,14 @@ window.addEventListener("load", function(){
     urltable.open('POST', "http://localhost/github/AUHF/Afrihost/PHPs/getMembers.php");
     urltable.onload = function () {
         var respondData = JSON.parse(urltable.responseText);
-        loadJobTable(respondData);
+        loadmemberTable(respondData);
     };
     urltable.send();
 });
 
 var postedJobs = document.getElementById("tableBody");
 
- function loadJobTable(res) {
+ function loadmemberTable(res) {
     var  htmlString ="";
             for (var i = 0; i < res.length; i++) {
 
