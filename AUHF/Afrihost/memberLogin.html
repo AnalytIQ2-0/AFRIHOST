@@ -147,6 +147,8 @@
                 alert("Wrong email address or password! Please try again.");
                 //htmlString='window.location.href="memberLogin.html"';
               }else{
+                sessionStorage.setItem("member_fname",data[0].member_fname);
+                sessionStorage.setItem("member_lname",data[0].member_lname);
                 sessionStorage.setItem("memberId",parseInt(hold));
                 window.location.href="memberDash.html";
               }
