@@ -71,7 +71,8 @@
       <div class="container">
         <div class="row">
                 <div class="col-md-8">
-                    <div class="contact-form">
+                    <div class="contact-form" method="post">
+                    <form id="invitations">
                       <form id="addEvent" action="http://localhost/AUHF/Afrihost/PHPs/addEvent.php" method="post">
                         <div class="row">
                             <div class="col-md-10">
@@ -405,11 +406,19 @@
                             </select>
                             </fieldset>
                           </div>
-                          <div class="col-lg-10">
+                          <div class="col-lg-5">
                             <fieldset>
                               <button type="submit" id="form-submit" class="filled-button">Create Event</button>
                             </fieldset>
                           </div>
+
+                        </div>
+                      </form>
+
+                        <div class="col-lg-5">
+                          <fieldset>
+                            <button type="submit" id="form-submit" class="filled-button">Send invitations</button>
+                          </fieldset>
                         </div>
                       </form>
                     </div>
@@ -420,6 +429,7 @@
     </form>
         <script>
           let myform = document.getElementById('eventform');
+          let myform1 = document.getElementById('invitations');
             myform.addEventListener('submit', (e)=>{
               e.preventDefault();
               let xhr = new XMLHttpRequest();
@@ -427,13 +437,24 @@
 
                  xhr.onload = function (){
                  alert(xhr.responseText);
-                 window.location.assign("AddEvent.html");
+                 //window.location.assign("AddEvent.html");
                  };
 
                  xhr.send(new FormData(myform));
 
             });
+            myform1.addEventListener('submit', (e)=>{
+              e.preventDefault();
+              let xhr = new XMLHttpRequest();
+                 xhr.open("POST","http://localhost/github/AUHF/Afrihost/PHPs/sendMail.php");
+                 xhr.onload = function (){
+                 alert(xhr.responseText);
+                 window.location.assign("Events.html");
+                 };
 
+                 xhr.send(new FormData(myform1));
+
+            });
           </script>
 
 

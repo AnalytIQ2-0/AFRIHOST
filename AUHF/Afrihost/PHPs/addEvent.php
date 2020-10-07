@@ -23,29 +23,6 @@ if($conn){
         if($checkResult->num_rows > 0){
             echo ("Event already exists.");
         }else{
-          $to="kgaugeloevidence990604@gmail.com";
-          $sub= "INVITATION TO: ".$eventName;
-          $msg = "Hey
-
-                  AUHF invites you to event that is coming up soon.
-                  Name: ".$eventName."
-                  Date: ".$eventDate."
-                  Start time: "$eventStart."
-                  End time: ".$eventEnd."
-                  Description: ".$eventDesc."
-
-                  Street address: ".$eventStr."
-                  Suburb: ".$eventSuburb."
-                  City: ".$eventCity."
-                  Province :".$eventProvince."
-                  Country: ".$eventCountry."
-
-                  Warm regards
-                  AUHF
-          !";
-          $head = "From: auhfmembers@gmail.com";
-
-          if(mail($to,$sub,$msg,$head)){
             $query ="INSERT INTO EVENT (staff_id,event_name,event_date,event_startTime,event_endTime,event_description,event_venueName,event_strAddress,event_suburb,event_city,event_province,event_country) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
             $s_id=1;
             $eventName=mysqli_real_escape_string($conn, $eventName);
@@ -67,7 +44,7 @@ if($conn){
                 mysqli_stmt_bind_param($stmt,"isssssssssss",$s_id,$eventName,$eventDate,$eventStart,$eventEnd,$eventDesc,$eventVenue,$eventStr,$eventSuburb,$eventCity,$eventProvince,$eventCountry);
 
                 if($stmt->execute()){
-                echo  "Event successfully created!";
+                echo  "Event successfully created! Remember to send invitations.";
                 }
                 else {
                     $output="Could not create event. Please Try again.";
@@ -76,12 +53,6 @@ if($conn){
                 }
             }
           }
-          else{
-            echo "failed to send an email";
-          }
-
-        }
-
     }else{
 
         echo json_encode("Please fill in all the fields.");
