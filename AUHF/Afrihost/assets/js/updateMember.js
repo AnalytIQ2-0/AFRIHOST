@@ -3,7 +3,7 @@ window.addEventListener("load", function(){
     var urlform = new XMLHttpRequest();
     var mem_id = sessionStorage.getItem("memberId");
     //alert(mem_id);
-    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+parseInt(mem_id));
+    urlform.open('GET', "http://localhost/AUHF/Afrihost/PHPs/getMemberData.php/?member_id="+parseInt(mem_id));
     urlform.onload = function () {
         var resData = JSON.parse(urlform.responseText);
         loadMemberData(resData);
@@ -27,7 +27,7 @@ function loadMemberData(Sdata){
             var  fname = Sdata[i].member_fname;
             var  lname = Sdata[i].member_lname;
             var  title = Sdata[i].member_title;
-            var  status = Sdata[i].member_status;
+            //var  status = Sdata[i].member_status;
             var  joinDate = Sdata[i].member_joinDate;
             var  country = Sdata[i].member_country;
             var  company = Sdata[i].member_companyName;
@@ -40,7 +40,7 @@ function loadMemberData(Sdata){
             document.getElementById("lName").value = lname;
             document.getElementById("fName").value = fname;
             document.getElementById("title").value= title;
-            document.getElementById("status").value = status;
+            //document.getElementById("status").value = status;
             document.getElementById("joinDate").value =joinDate;
             document.getElementById("country").value = country;
             document.getElementById("companyName").value = company;

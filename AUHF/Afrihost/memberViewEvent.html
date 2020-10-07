@@ -44,6 +44,9 @@
                       <span class="sr-only">(current)</span>
                     </a>
                   </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" onclick="parseMemDetails()" href="memberRSVPEvent.html">Event RSVP</a>
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link" href="memberEvents.html">All Events</a>
                 </li>
@@ -71,7 +74,7 @@
         <div class="row">
                 <div class="col-md-8">
                     <div class="contact-form">
-                      <form id="eventUpdate" action="http://localhost/AUHF/Afrihost/PHPs/getEventData.php" method="POST">
+                      <form id="RSVP_event" method="POST">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <fieldset>
@@ -88,7 +91,7 @@
                               <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
                                   <label for="eventStart">Event Name:</label>
-                                  <input readonly name="eventName" type="text" class="form-control" id="eventName" placeholder="Event Name" required="">
+                                  <input disabled name="eventName" type="text" class="form-control" id="eventName" placeholder="Event Name" required="">
                                 </fieldset>
                               </div>
                               <div class="col-lg-5 col-md-5 col-sm-5">
@@ -411,31 +414,27 @@
                           </fieldset>
                         </div>
 
-                          <div class="col-lg-5" hidden>
+                          <div class="col-lg-5">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="filled-button">Save</button>
+                              <button type="submit" id="form-submit" class="filled-button" onclick="parseMemDetails()">RSVP event</button>
                             </fieldset>
                           </div>
                         </div>
                         <script src="assets/js/updateEvent.js"></script>
                         <script>
-                            let form = document.getElementById('eventUpdate');
-                            var evenID = sessionStorage.getItem("eventId");
-                              form.addEventListener('submit', (e)=>{
-                                e.preventDefault();
-                                let xhr = new XMLHttpRequest();
-                                   xhr.open("POST","http://localhost/github/AUHF/Afrihost/PHPs/updateEvent.php/?event_id="+evenID);
-
-                                   xhr.onload = function (){
-                                   alert(xhr.responseText);
-                                   window.location.assign("Events.html");
-                                   };
-
-                                   xhr.send(new FormData(form));
-
-                              });
-
+                          function parseMeID(){
+                            var memberID = sessionStorage.getItem("memberId");
+                            var memberIdInt = parseInt(memberID);
+                            //alert(document.getElementById('fname').value);
+                            sessionStorage.setItem("Member_Fname",document.getElementById('fName').value);
+                            sessionStorage.setItem("Member_Lname",document.getElementById('lName').value);
+                            sessionStorage.setItem("status",document.getElementById('status').value);
+                            sessionStorage.setItem("title",document.getElementById('title').value);
+                            sessionStorage.setItem("joinDate",document.getElementById('joinDate').value);
+                            sessionStorage.setItem("Member_ID",memberIdInt);
+                          }
                         </script>
+
                       </form>
                     </div>
                 </div>
@@ -457,7 +456,19 @@
         </div>
       </footer>
 
-
+      <script>
+          function parseMemDetails(){
+            sessionStorage.setItem("eventId",document.getElementById('eventId').value);
+            sessionStorage.setItem("eventName",document.getElementById('eventName').value);
+            
+            sessionStorage.setItem("member_fname",sessionStorage.getItem("member_fname"));
+            sessionStorage.setItem("member_lname",sessionStorage.getItem("member_lname"));
+            sessionStorage.setItem("memberId",parseInt(hold));
+            var mem = sessionStorage.getItem('memberId');
+            //alert(mem);
+            sessionStorage.setItem('memberId',parseInt(mem));
+        }
+      </script>
 
 
 
@@ -472,17 +483,5 @@
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
-
-
-    <script type = "text/Javascript">
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
   </body>
 </html>

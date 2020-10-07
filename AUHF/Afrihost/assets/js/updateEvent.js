@@ -2,7 +2,7 @@ window.addEventListener("load", function(){
     var urlform = new XMLHttpRequest();
     var even_id = sessionStorage.getItem("eventId");
 
-    urlform.open('GET', "http://localhost/github/AUHF/Afrihost/PHPs/getEventData.php/?event_id="+even_id);
+    urlform.open('GET', "http://localhost/AUHF/Afrihost/PHPs/getEventData.php/?event_id="+even_id);
     urlform.onload = function () {
         var Data = JSON.parse(urlform.responseText);
         loadEventData(Data);

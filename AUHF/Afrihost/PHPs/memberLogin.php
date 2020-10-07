@@ -7,7 +7,7 @@
     $email=$_REQUEST['email'];
     $password=$_REQUEST['password'];
 
-    $query = "SELECT member_id,member_email,member_password FROM member WHERE member_email='$email' and member_password='$password'";
+    $query = "SELECT member_id,member_fname,member_lname,member_email,member_password FROM member WHERE member_email='$email' and member_password='$password'";
     $output=array();
     if($conn){
         if($result = mysqli_query($conn,$query)){

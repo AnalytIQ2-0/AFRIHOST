@@ -660,6 +660,17 @@ header .navbar .subnav{
 	margin-top: 12px;
 }
 
+/* group box */
+
+.GROUPBOX {
+    border: 1px solid #c1c1c7;
+	padding: 8px;
+
+}
+LEGEND{
+	padding: 2px;
+	color: #192483;    
+}
 
 
 

@@ -6,10 +6,11 @@ $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
 $member_id=$_POST['member_ID'];
 $member_subject=$_POST['subject'];
+$date = $_POST['date'];
 
 if(!isset($_POST["insert"])){
     $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-    $query = "INSERT INTO corres(corres_image,member_id,corres_subject) VALUES ('$file','$member_id','$member_subject')";
+    $query = "INSERT INTO correspondence(corres_image,member_id,corres_subject,corres_date) VALUES ('$file','$member_id','$member_subject', '$date')";
     if($conn){
       if(mysqli_query($conn,$query)){
         echo "insert ok";

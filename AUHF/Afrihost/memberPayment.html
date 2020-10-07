@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Payment</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Pay membership</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/stylesUI.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+
+  </head>
+  <body onload="loadData()">
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <header class="">
+        <nav id="mUpdate" class="navbar navbar-expand-lg">
+            <div class="container">
+                <img class="auhfLogo" src="assets/images/logo.png">
+                <a class="navbar-brand" href=""><h2>AU<em>HF</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="memberTable.html">
+                                Payments
+                            </a>
+                            <span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="memberUpdate.html">
+                                Back
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Page Content -->
+    <div class="page-headingAddEvent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Membership Payments</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="memberProfile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <div class="row">
+                          <form>
+                            <div class="row">
+                              <div class="col-lg-3 col-md-3 col-sm-3">
+                                  <fieldset>
+                                      <label for="Memberid">Member ID:</label>
+                                      <input name="Memberid" type="text" class="form-control" id="Memberid" disabled>
+                                  </fieldset>
+                              </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <fieldset>
+                                        <label for="joinDate">Joined Date:</label>
+                                        <input name="joinDate" type="text" class="form-control" id="joinDate" disabled>
+                                    </fieldset>
+                                </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-3">
+                                      <fieldset>
+                                          <label for="status">Member Status:</label>
+                                          <input name="status" type="text" class="form-control" id="status" disabled>
+                                      </fieldset>
+                                  </div>
+                              </div>
+                              <div class="col-lg-5 col-md-5 col-sm-5">
+                                  <fieldset>
+                                    <label disabled for="title">Membership Type:</label>
+                                      <input name="title" id="title" class="form-control" required disabled>
+                                  </fieldset>
+                              </div>
+                              <div class="col-lg-5 col-md-5 col-sm-5">
+                                  <fieldset>
+                                    <label for="fname">Member's name:</label>
+                                      <input disabled name="fname" type="text" class="form-control" id="fName" placeholder="First Name" required="">
+                                  </fieldset>
+                              </div>
+                          </form>
+                          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                              <input type="hidden" name="cmd" value="_s-xclick">
+                              <input type="hidden" name="hosted_button_id" value="WZSX4LG6JS4AW">
+                              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <p>
+                            Copyright &copy; 2020 AnalytIQ Project, Ltd.
+
+                            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">AFRIHOST</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script>
+        function loadData(){
+          document.getElementById('fName').value= sessionStorage.getItem("Member_Fname")+" "+sessionStorage.getItem("Member_Lname");
+          document.getElementById('status').value= sessionStorage.getItem("status");
+          document.getElementById('title').value=sessionStorage.getItem("title");
+          document.getElementById('joinDate').value=sessionStorage.getItem("joinDate");
+          document.getElementById('Memberid').value=sessionStorage.getItem("Member_ID");
+        }
+    </script>
+
+    <script language="text/Javascript">
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
+    </script>
+</body>
+</html>
