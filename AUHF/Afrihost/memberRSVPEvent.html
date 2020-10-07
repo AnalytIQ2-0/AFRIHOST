@@ -43,7 +43,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="">
-                                RSVP event
+                                Event RSVP
                             </a>
                         </li>
                         <li class="nav-item">
@@ -63,7 +63,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>RSVP event</h3>
+                    <h3>Event RSVP</h3>
                 </div>
             </div>
         </div>
@@ -76,53 +76,52 @@
                     <div class="contact-form">
                         <form id="RSVP" action="https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec" method="POST">
                             <div class="row">
-                                <div class="col-lg-7 col-md-7 col-sm-7">
+
+                                <div class="col-lg-3 col-md-3 col-sm-3">
                                     <fieldset>
-                                      <label for="eventId">Event ID:</label>
+                                        <label for="eventId">Event ID:</label>
                                         <input name="EventID" type="text" class="form-control" id="eventId" readonly>
                                     </fieldset>
                                 </div>
-                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="col-lg-3 col-md-3 col-sm-3">
                                     <fieldset>
                                       <label for="EventName">Event name:</label>
-                                        <input name="EventName" type="text" class="form-control" id="eventName" readonly>
+                                     <input name="EventName" type="text" class="form-control" id="eventName" readonly>
                                     </fieldset>
                                 </div>
-                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="col-lg-3 col-md-3 col-sm-3">
                                     <fieldset>
                                       <label for="fname">Member's name:</label>
                                         <input name="Name" type="text" class="form-control" id="fName" placeholder="First Name" readonly>
                                     </fieldset>
                                 </div>
-                                <div class="col-md-10">
+                              <!---- <div class="col-md-10">
                                     <div class="section-heading">
                                         <h2>RSVP Details</h2>
                                     </div>
-                                </div>
-                                <div class="col-lg-7 col-md-7 col-sm-7">
-                                    <fieldset>
-                                      <label for="desc">Description:</label>
-                                        <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Description" required=""></textarea>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-7 col-md-7 col-sm-7">
-                                    <fieldset>
-                                      <label for="contactNo">Contact number:</label>
-                                        <input name="ContactNo" type="tel" class="form-control" id="contactNo" placeholder="Contact Number" required="">
-                                    </fieldset>
-                                </div>
+                                </div> -->
 
                                 <div class="col-lg-7 col-md-7 col-sm-7">
-                                    <fieldset>
-                                      <label for="email">Email address:</label>
-                                        <input name="Email" type="email" class="form-control" id="Email" placeholder="Email" required="">
-                                    </fieldset>
+                                        <div class="GROUPBOX">
+                                            <legend>RSVP Details</legend>
+        
+                                            <label for="contactNo">Contact number:</label>
+                                            <input name="ContactNo" type="tel" class="form-control" id="contactNo" placeholder="Contact number" required="">
+                                            
+                                            <label for="email">Email address:</label>
+                                            <input name="Email" type="email" class="form-control" id="Email" placeholder="Email" required="">
+                                            <fieldset>
+                                                <label for="desc">Description:</label>
+                                                <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Enter information on attendies (e.g. number of attendies, their full names and contacts.)" required=""></textarea>
+                                            </fieldset>
+        
+                                        </div>
                                 </div>
 
                                 <div class="col-lg-10">
-                                    <fieldset>
-                                        <button type="submit" id="membersubmit" class="filled-button">Send</button>
-                                    </fieldset>
+                                    
+                                    <button type="submit" id="membersubmit" class="filled-button">Send</button>
+                                    
                                 </div>
                             </div>
 

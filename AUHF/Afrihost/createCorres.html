@@ -17,9 +17,32 @@
     <link rel="stylesheet" href="assets/css/stylesUI.css">
     <link rel="stylesheet" href="assets/css/owl.css">
 
+    <script>
+        function getToday(){
+            var today = new Date();
+
+            var dd = today.getDate();
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+
+            if(dd<10) {
+                dd = '0'+dd
+            }
+
+            if(mm<10) {
+                mm = '0'+mm
+            }
+
+            today = yyyy + '-' + mm + '-' + dd;
+
+            console.log(today);
+            document.getElementById('date').value = today;
+        }
+    </script>
+
 
 </head>
-<body>
+<body onload="getToday()">
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -83,7 +106,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <fieldset>
-                                    <input name="lastName" type="text" class="form-control" id="lname" placeholder="member's last name" disabled/>
+                                    <input name="lastName" type="text" class="form-control" id="lname" placeholder="Member's last name" disabled/>
                                 </fieldset>
                             </div>
                             <br>
@@ -100,6 +123,11 @@
                                   <input name="member_ID" type="text" class="form-control" id="memberID" placeholder="member's id" hidden/>
                                 </fieldset>
                             </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                <fieldset>
+                                  <input name="date" type="date" class="form-control" id="date" hidden/>
+                                </fieldset>
+                            </div>
                             <div class="col-lg-10 col-md-10 col-sm-10">
                                   <h5 for="imgage">Conversation Screenshort: </h5>
                                   <input name="image" type="file" class="form-control" id="image" placeholder="" required=""/>
@@ -108,7 +136,7 @@
 
                             <div class="col-lg-10">
                                 <fieldset>
-                                    <button type="submit" id="membersubmit" class="filled-button">Submit Application</button>
+                                    <button type="submit" id="membersubmit" class="filled-button">Save</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -125,12 +153,12 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/github/AUHF/Afrihost/PHPs/createCorres.php");
+            xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/createCorres.php");
             xhr.onload = function () {
 
                 if(!xhr.responseText.localeCompare("insert ok")){
-                  alert("successful");
-                  window.location.assign("viewCorres.html");
+                  alert("Conversation saved!");
+                  window.location.assign("ConversationList.html");
                 }
                 else{
                   alert(xhr.responseText);

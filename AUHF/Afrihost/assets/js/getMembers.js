@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
     var urltable = new XMLHttpRequest();
-    urltable.open('POST', "http://localhost/github/AUHF/Afrihost/PHPs/getMembers.php");
+    urltable.open('POST', "http://localhost/AUHF/Afrihost/PHPs/getMembers.php");
     urltable.onload = function () {
         var respondData = JSON.parse(urltable.responseText);
         loadmemberTable(respondData);

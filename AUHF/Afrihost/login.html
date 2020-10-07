@@ -230,7 +230,7 @@
                 let xhr = new XMLHttpRequest();
                 var email = document.getElementById('email').value;
                 var password = document.getElementById('password').value;
-                xhr.open("GET", 'http://localhost/github/AUHF/Afrihost/PHPs/memberLogin.php/?email='+email+'& password='+password);
+                xhr.open("GET", 'http://localhost/AUHF/Afrihost/PHPs/memberLogin.php/?email='+email+'& password='+password);
 
                 xhr.onload = function () {
 
@@ -241,20 +241,21 @@
                 xhr.send(new FormData(myform));
 
             });
+            function HtmlOutput(data){
+              var hold="";
 
-            myform.addEventListener('submit', (e) => {
-                e.preventDefault();
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://localhost/github/AUHF/Afrihost/assets/Php/memberLogin.php");
-    
-                xhr.onload = function () {
-                    alert(xhr.responseText);
-                    window.location.assign("memberDashboard.html");
-                };
-    
-                xhr.send(new FormData(myform));
-    
-            });
+              hold=data[0].member_id;
+              //alert(hold);
+              if(!hold.localeCompare("false")){
+                alert("Wrong email address or password! Please try again.");
+                //htmlString='window.location.href="memberLogin.html"';
+              }else{
+                sessionStorage.setItem("member_fname",data[0].member_fname);
+                sessionStorage.setItem("member_lname",data[0].member_lname);
+                sessionStorage.setItem("memberId",parseInt(hold));
+                window.location.href="memberDash.html";
+              }
+            }
     
         </script>
 

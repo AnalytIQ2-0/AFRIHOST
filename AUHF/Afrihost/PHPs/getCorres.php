@@ -4,9 +4,10 @@
     $password = "";
     $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 
-        $member_id=$_REQUEST['member_ID'];
+        //$member_id=$_REQUEST['member_ID'];
+        $corres =$_REQUEST['corres_ID'];
 
-        $query = "SELECT corres_image FROM corres where member_id = $member_id order by corres_id desc limit 1";
+        $query = "SELECT corres_image FROM correspondence where corres_id = $corres";
 
         $output=array();
         if($conn){

@@ -58,7 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Member Application</h3>
+                    <h3>Member Login</h3>
                 </div>
             </div>
         </div>
@@ -68,34 +68,33 @@
         <div class="row" style="text-align:'center'" >
             <div class="col-md-8">
                 <div class="contact-form">
-                    <form id="memberDetails" method="post" align="center">
-                        <div class="row" >
+                    <form id="memberDetails" method="post">
+                        <div >
 
-                            <div class="col-md-10">
+                           <!--- <div class="col-md-10">
                                 <div class="section-heading">
                                     <h2>Member login </h2>
                                 </div>
+                            </div>-->
+                            <div class="col-lg-7 col-md-7 col-sm-7" style="width: 100%; margin:0 auto; left: 160px;">
+                                <div style="padding: 10px; border: 1px solid rgb(160, 159, 159);" class="GROUPBOX">
+                                    <h2 style="text-align: center; color: rgb(42, 42, 129); margin-bottom: 25px;" ><b>LOGIN</b></h2>
+                                    
+                                        <fieldset>
+                                        <label for="email">Email address</label>
+                                            <input style="border:1px solid black; border-radius: 0px;" name="email" type="email" class="form-control" id="email" placeholder="Email address" required="">
+                                        </fieldset>
+                                    
+                                        <fieldset>
+                                        <label for="password">Password</label>
+                                            <input style="border: 1px solid black; border-radius: 0px;" name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
+                                        </fieldset>
+                                        
+                                        <fieldset>
+                                            <button style="border-radius: 3px; width: 91%; margin-left: 15px;" type="submit" id="loginBtn" class="filled-button">LOGIN</button>
+                                        </fieldset>
+                                </div> 
                             </div>
-
-                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                <fieldset>
-                                  <label for="email">Email address</label>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email address" required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                <fieldset>
-                                  <label for="password">Password</label>
-                                    <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
-                                </fieldset>
-                            </div>
-
-                            <div class="col-lg-10">
-                                <fieldset>
-                                    <button type="submit" id="loginBtn" class="filled-button">Login</button>
-                                </fieldset>
-                            </div>
-
                         </div>
                     </form>
                 </div>
@@ -127,8 +126,7 @@
                 let xhr = new XMLHttpRequest();
                 var email = document.getElementById('email').value;
                 var password = document.getElementById('password').value;
-                xhr.open("GET", 'http://localhost/github/AUHF/Afrihost/PHPs/memberLogin.php/?email='+email+'& password='+password);
-
+                xhr.open("GET", 'http://localhost/AUHF/Afrihost/PHPs/memberLogin.php/?email='+email+'&password='+password);
                 xhr.onload = function () {
 
                 //alert(xhr.responseText);

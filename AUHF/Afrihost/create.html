@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="contact-form">
-                    <form id="memberDetails" action="http://localhost/afri/AUHF/Afrihost/assets/Php/createmember.php" method="post">
+                    <form id="memberDetails" action="http://localhost/AUHF/Afrihost/assets/Php/createmember.php" method="post">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <fieldset>
@@ -458,7 +458,7 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/github/AUHF/Afrihost/assets/Php/createmember.php");
+            xhr.open("POST", "http://localhost/AUHF/Afrihost/assets/Php/createmember.php");
 
             xhr.onload = function () {
                 alert(xhr.responseText);
