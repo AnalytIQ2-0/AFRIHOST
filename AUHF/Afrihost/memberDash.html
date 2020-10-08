@@ -48,8 +48,8 @@
                                 <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown" onclick="parseMemId()">
-                                <a class="nav-link" href="memberUpdate.html" >My Profile</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="memberUpdate.html" onclick="parseMemId()">My Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="memberEvents.html" onclick="parseMemId()">Events</a>
@@ -147,7 +147,6 @@
         function parseMemId(){
           sessionStorage.setItem("member_fname",sessionStorage.getItem("member_fname"));
           sessionStorage.setItem("member_lname",sessionStorage.getItem("member_lname"));
-          sessionStorage.setItem("memberId",parseInt(hold));
         var mem = sessionStorage.getItem('memberId');
         //alert(mem);
         sessionStorage.setItem('memberId',parseInt(mem));

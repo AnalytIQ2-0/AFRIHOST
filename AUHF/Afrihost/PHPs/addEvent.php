@@ -21,7 +21,7 @@ if($conn){
     if(isset($eventName, $eventDate,$eventStart,$eventEnd,$eventDesc,$eventVenue,$eventStr,$eventSuburb,$eventProvince,$eventCountry)){
         $checkResult = $conn->query("SELECT * FROM EVENT WHERE event_name = '$eventName' AND event_date = '$eventDate'");
         if($checkResult->num_rows > 0){
-            echo ("Event already exists.");
+            echo ("Event already exists!");
         }else{
             $query ="INSERT INTO EVENT (staff_id,event_name,event_date,event_startTime,event_endTime,event_description,event_venueName,event_strAddress,event_suburb,event_city,event_province,event_country) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
             $s_id=1;
@@ -52,8 +52,7 @@ if($conn){
                     die(mysqli_error($conn));
                 }
             }
-        }
-
+          }
     }else{
 
         echo json_encode("Please fill in all the fields.");

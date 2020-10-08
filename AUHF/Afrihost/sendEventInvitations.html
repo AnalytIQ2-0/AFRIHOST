@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
 
   </head>
-  <body>
+  <body onload="loadEventData()">
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -39,16 +39,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="Events.html">All Events</a>
-                </li>
+
                 <li class="nav-item active">
-                  <a class="nav-link" href="AddEvent.html">Add Event
+                  <a class="nav-link" href="AddEvent.html">Send Event Invitations
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="Events.html">All Events</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="AdminPage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="AddEvent.html">Back</a>
                 </li>
               </ul>
             </div>
@@ -61,19 +65,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Create Event</h3>
+                    <h3>Send Event Invitations</h3>
                 </div>
             </div>
         </div>
     </div>
 
-    <form id="eventform">
       <div class="container">
         <div class="row">
                 <div class="col-md-8">
-                    <div class="contact-form" method="post">
+                    <div class="contact-form">
                     <form id="invitations">
-                      <form id="addEvent" action="http://localhost/AUHF/Afrihost/PHPs/addEvent.php" method="post">
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="section-heading">
@@ -84,14 +86,14 @@
                               <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
                                   <label for="eventName">Event Name:</label>
-                                  <input name="eventName" type="text" class="form-control" id="eventName" placeholder="Event Name" required="">
+                                  <input readonly name="eventName" type="text" class="form-control" id="eventName" placeholder="Event Name" required="">
                                 </fieldset>
                               </div>
                               <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
                                   <div class="show-icon">
                                     <label for="eventDate">Event Date:</label>
-                                    <input name="eventDate" type="date" class="form-control" id="eventDate" placeholder="dd/mm/yyyy" required="">
+                                    <input readonly name="eventDate" type="date" class="form-control" id="eventDate" placeholder="dd/mm/yyyy" required="">
                                   </div>
                                 </fieldset>
                               </div>
@@ -99,7 +101,7 @@
                                 <fieldset>
                                   <div class="show-icon">
                                    <label for="eventStart">Start Time:</label>
-                                    <input name="eventStart" type="time" class="form-control" id="eventStart" placeholder="Event Start" required="">
+                                    <input readonly name="eventStart" type="time" class="form-control" id="eventStart" placeholder="Event Start" required="">
                                   </div>
                                 </fieldset>
                               </div>
@@ -107,14 +109,14 @@
                                 <fieldset>
                                   <div class="show-icon">
                                    <label for="eventEnd">End Time:</label>
-                                    <input name="eventEnd" type="time" class="form-control" id="eventEnd" placeholder="Event End" required="">
+                                    <input readonly name="eventEnd" type="time" class="form-control" id="eventEnd" placeholder="Event End" required="">
                                   </div>
                                 </fieldset>
                               </div>
                               <div class="col-lg-10">
                                 <fieldset>
                                   <label for="eventDesc">Event description:</label>
-                                  <textarea name="eventDesc" rows="6" class="form-control" id="eventDesc" placeholder="Event Description" required=""></textarea>
+                                  <textarea readonly name="eventDesc" rows="6" class="form-control" id="eventDesc" placeholder="Event Description" required=""></textarea>
                                 </fieldset>
                               </div>
 
@@ -127,37 +129,37 @@
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventVenue">Event Venue:</label>
-                              <input name="eventVenue" type="text" class="form-control" id="eventVenue" placeholder="Event Venue" required="">
+                              <input readonly name="eventVenue" type="text" class="form-control" id="eventVenue" placeholder="Event Venue" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventStr">Street Address:</label>
-                              <input name="eventStr" type="text" class="form-control" id="eventStr" placeholder="Street Name" required="">
+                              <input readonly name="eventStr" type="text" class="form-control" id="eventStr" placeholder="Street Name" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventSuburb">Suburb:</label>
-                              <input name="eventSuburb" type="text" class="form-control" id="eventSuburb" placeholder="Suburb" required="">
+                              <input readonly name="eventSuburb" type="text" class="form-control" id="eventSuburb" placeholder="Suburb" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventCity">City:</label>
-                              <input name="eventCity" type="text" class="form-control" id="eventCity" placeholder="City" required="">
+                              <input readonly name="eventCity" type="text" class="form-control" id="eventCity" placeholder="City" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventProvince">Province:</label>
-                              <input name="eventProvince" type="text" class="form-control" id="eventProvince" placeholder="Province" required="">
+                              <input readonly name="eventProvince" type="text" class="form-control" id="eventProvince" placeholder="Province" required="">
                             </fieldset>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5">
                             <fieldset>
                               <label for="eventCountry">Country:</label>
-                              <select class="form-control" id="eventCountry" name="eventCountry" required>
+                              <select readonly class="form-control" id="eventCountry" name="eventCountry" required>
                                 <option value="" disabled selected hidden> Select Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -408,52 +410,35 @@
                           </div>
                           <div class="col-lg-5">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="filled-button" onclick="parseEventData()">Create Event</button>
+                              <button type="submit" id="form-submit" class="filled-button">Send invitations</button>
                             </fieldset>
                           </div>
-
                         </div>
-                      </form>
                       </form>
                     </div>
                 </div>
             </div>
 
       </div>
-    </form>
         <script>
-          let myform = document.getElementById('eventform');
           let myform1 = document.getElementById('invitations');
-            myform.addEventListener('submit', (e)=>{
+            myform1.addEventListener('submit', (e)=>{
               e.preventDefault();
               let xhr = new XMLHttpRequest();
-                 xhr.open("POST","http://localhost/AUHF/Afrihost/PHPs/addEvent.php");
-
+                 xhr.open("POST","http://localhost/AUHF/Afrihost/PHPs/sendMail.php");
                  xhr.onload = function (){
-                   if(!xhr.responseText.localeCompare("Event successfully created!")){
-                    alert(xhr.responseText);
-                    window.location.assign("sendEventInvitations.html");
-                  }else{
-                    alert(xhr.responseText);
-                  }
-                 };
 
-                 xhr.send(new FormData(myform));
+                 if(!xhr.responseText.localeCompare("successfully send email!")){
+                    alert(xhr.responseText);
+                    window.location.assign("Events.html");
+                 }else{
+                    alert(xhr.responseText);
+                 }};
+
+                 xhr.send(new FormData(myform1));
 
             });
-            function parseEventData(){
-              sessionStorage.setItem("eventName",document.getElementById("eventName").value);
-              sessionStorage.setItem("eventDate",document.getElementById("eventDate").value);
-              sessionStorage.setItem("eventStart",document.getElementById("eventStart").value);
-              sessionStorage.setItem("eventEnd",document.getElementById("eventEnd").value);
-              sessionStorage.setItem("eventDesc",document.getElementById("eventDesc").value);
-              sessionStorage.setItem("eventVenue",document.getElementById("eventVenue").value);
-              sessionStorage.setItem("eventStr",document.getElementById("eventStr").value);
-              sessionStorage.setItem("eventSuburb",document.getElementById("eventSuburb").value);
-              sessionStorage.setItem("eventCity",document.getElementById("eventCity").value);
-              sessionStorage.setItem("eventProvince",document.getElementById("eventProvince").value);
-              sessionStorage.setItem("eventCountry",document.getElementById("eventCountry").value);
-            }
+
           </script>
 
 
@@ -487,16 +472,34 @@
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
 
-
-    <script type = "text/Javascript">
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
   </body>
+  <script>
+  function loadEventData(){
+
+    var name = sessionStorage.getItem("eventName");
+    var date = sessionStorage.getItem("eventDate");
+    var start = sessionStorage.getItem("eventStart");
+    var end = sessionStorage.getItem("eventEnd");
+    var desc = sessionStorage.getItem("eventDesc");
+    var venue = sessionStorage.getItem("eventVenue");
+    var str = sessionStorage.getItem("eventStr");
+    var sub = sessionStorage.getItem("eventSuburb");
+    var city = sessionStorage.getItem("eventCity");
+    var prov = sessionStorage.getItem("eventProvince");
+    var country = sessionStorage.getItem("eventCountry");
+
+
+    document.getElementById('eventName').value = name;
+    document.getElementById('eventDate').value = date;
+    document.getElementById('eventStart').value = start;
+    document.getElementById('eventEnd').value = end;
+    document.getElementById('eventDesc').value = desc;
+    document.getElementById('eventVenue').value = venue;
+    document.getElementById('eventStr').value = str;
+    document.getElementById('eventSuburb').value = sub;
+    document.getElementById('eventCity').value = city;
+    document.getElementById('eventProvince').value = prov;
+    document.getElementById('eventCountry').value = country;
+  }
+  </script>
 </html>
