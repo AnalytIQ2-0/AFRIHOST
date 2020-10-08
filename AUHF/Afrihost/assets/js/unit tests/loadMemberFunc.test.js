@@ -1,4 +1,5 @@
 const {checkData} =require("./loadMemberFunc");
+const puppeteer = require("puppeteer");
 
 //Individuals
 test("Should return a table of all existing individual members.", ()=>{
@@ -34,4 +35,16 @@ test("Should return a table of all existing company members.", ()=>{
     '</td></tr>';
     expect(returnStr).toBe(resultString);
     
+});
+
+test("Test user interface",async ()=>{
+    const browser = await puppeteer.launch({
+        headless: false,
+        slowMo: 80,
+        args: ["--window-size=1920,1080"]
+    });
+    const page = await browser.newPage();
+    await page.goto('C:\Users\Bohlokoa\Documents\AFRIHOST\AUHF\Afrihost\memberTable.html');
+
+
 });

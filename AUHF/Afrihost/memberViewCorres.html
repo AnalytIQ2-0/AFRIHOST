@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <img class="auhfLogo" src="assets/images/logo.png">
-                <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
+                <a class="navbar-brand" href="memberDash.html"><h2>AU<em>HF</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,12 +43,6 @@
                               Correspondence
                               <span class="sr-only">(current)</span>
                           </a>
-                        </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="memberDash.html">
-                                Home
-                                <span class="sr-only">(current)</span>
-                            </a>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Correspondences</h3>
+                    <h3>Correspondence</h3>
                 </div>
             </div>
         </div>
@@ -76,24 +70,12 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="section-heading">
-                                    <h2>Latest Correspondences</h2>
+                                    <h2>Latest Correspondence</h2>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-2 col-sm-2">
-                              <fieldset>
-                                <h5 for="lname">Member's name:</h5>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                <fieldset>
-                                    <input name="lname" type="text" class="form-control" id="lname" placeholder="Last Name" disabled>
-                                </fieldset>
-                            </div>
+                            </div>                            
 
+                            <div class="col-lg-5 col-md-5 col-sm-5" id="lname"> </div>
 
-                              <div class="col-lg-5 col-md-5 col-sm-5">
-                                  <h5>Conversation subject:</h5>
-                              </div>
                               <div class="col-lg-10 col-md-10 col-sm-10" id="displayCorresSubject"></div>
 
                               <div class="col-lg-10 col-md-10 col-sm-10">
@@ -117,11 +99,18 @@
                             </div><br><br>
                             <div class="col-lg-10">
                                 <fieldset>
-                                    <button  type="submit" name="submit" id="insert" value="View more..." onclick="parseMID()"  class="filled-button">View more conversations...</button>
+                                    <button  type="submit" name="submit" id="insert" value="View more..." class="filled-button">Back</button>
                                 </fieldset>
                             </div>
+                            
+                            <script type="text/javascript">
+                                document.getElementById("insert").onclick = function () {
+                                    location.href = "memberConvoList.html";
+                                };
+                            </script>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

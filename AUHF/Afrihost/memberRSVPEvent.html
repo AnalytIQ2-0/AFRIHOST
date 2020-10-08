@@ -43,7 +43,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="">
-                                Event RSVP
+                                RSVP
                             </a>
                         </li>
                         <li class="nav-item">
@@ -76,22 +76,15 @@
                     <div class="contact-form">
                         <form id="RSVP" action="https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec" method="POST">
                             <div class="row">
-
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <fieldset>
-                                        <label for="eventId">Event ID:</label>
-                                        <input name="EventID" type="text" class="form-control" id="eventId" readonly>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-lg-5 col-md-3 col-sm-3">
                                     <fieldset>
                                       <label for="EventName">Event name:</label>
                                      <input name="EventName" type="text" class="form-control" id="eventName" readonly>
                                     </fieldset>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-lg-5 col-md-3 col-sm-3">
                                     <fieldset>
-                                      <label for="fname">Member's name:</label>
+                                      <label for="fname">Member:</label>
                                         <input name="Name" type="text" class="form-control" id="fName" placeholder="First Name" readonly>
                                     </fieldset>
                                 </div>
@@ -163,7 +156,7 @@
     </script>-->
     <script>
         function loadData(){
-          document.getElementById('eventId').value=sessionStorage.getItem("eventId");
+          //document.getElementById('eventId').value=sessionStorage.getItem("eventId");
 
           document.getElementById('eventName').value=sessionStorage.getItem("eventName");
 
