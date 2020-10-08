@@ -23,7 +23,7 @@ function HtmlOutput(data){
     htmlString="No conversations available";
   }else{
     for(i =0; i <data.length;i++){
-      htmlString += '<tr><td class=col1 onclick="parseConvoId()"><a href="viewCorres.html" >'+data[i].corres_id+
+      htmlString += '<tr><td class=col1 onclick="parseConvoId()"><a href="memberViewCorres.html" >'+data[i].corres_id+
       '</a></td><td class="col1">'+data[i].corres_subject+
       '</td><td class="col4">'+data[i].corres_date+
       '</td></tr>';

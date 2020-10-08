@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
 
 </head>
-<body>
+<body onload="parseMID()">
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -50,6 +50,12 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="memberCoversationList.html">
+                              Back
+                              <span class="sr-only">(current)</span>
+                          </a>
+                      </li>
                     </ul>
                 </div>
             </div>
@@ -86,7 +92,7 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
-                                    <input name="lname" type="text" class="form-control" id="lname" placeholder="Last Name" disabled>
+                                    <input name="lName" type="text" class="form-control" id="lName" placeholder="Last Name" disabled>
                                 </fieldset>
                             </div>
 
@@ -115,11 +121,6 @@
                                   </table>
                             </form>
                             </div><br><br>
-                            <div class="col-lg-10">
-                                <fieldset>
-                                    <button  type="submit" name="submit" id="insert" value="View more..." onclick="parseMID()"  class="filled-button">View more conversations...</button>
-                                </fieldset>
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -157,17 +158,16 @@
     <script src="assets/js/accordions.js"></script>
     <script src="js/getCorresSubject.js"></script>
     <script src="js/getRecentCorres.js"></script>
-    <script src="js/preloadCorres.js"></script>
     <script>
-    function parseMID(){
-          var memberID = sessionStorage.getItem("memberId");
-          var memberIdInt = parseInt(memberID);
-          sessionStorage.setItem("Member_Fname",sessionStorage.getItem("Member_Fname"));
-        sessionStorage.setItem("Member_Lname",sessionStorage.getItem("Member_Lname"));
-          sessionStorage.setItem("Member_ID",memberIdInt);
-    }
+      function parseMID(){
+            var memberID = sessionStorage.getItem("memberId");
+            var memberIdInt = parseInt(memberID);
+            document.getElementById("lName").value=sessionStorage.getItem("Member_Lname")+" "+sessionStorage.getItem("Member_Fname");
+            sessionStorage.setItem("Member_Fname",sessionStorage.getItem("Member_Fname"));
+            sessionStorage.setItem("Member_Lname",sessionStorage.getItem("Member_Lname"));
+            sessionStorage.setItem("Member_ID",memberIdInt);
+      }
     </script>
-
     <script language="text/Javascript">
 
         cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field

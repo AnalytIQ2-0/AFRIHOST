@@ -53,8 +53,8 @@
                                 Payments
                             </a>
                         </li>
-                        <li class="nav-item" onclick="parseMeID()">
-                            <a class="nav-link" href="memberViewCorres.html">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="parseMeID()" href="memberCoversationList.html">
                                 My Correspondences
                             </a>
                         </li>
@@ -428,19 +428,7 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <script>
-                              function parseMeID(){
-                                var memberID = sessionStorage.getItem("memberId");
-                                var memberIdInt = parseInt(memberID);
-                                //alert(document.getElementById('fname').value);
-                                sessionStorage.setItem("Member_Fname",document.getElementById('fName').value);
-                                sessionStorage.setItem("Member_Lname",document.getElementById('lName').value);
-                                sessionStorage.setItem("status",document.getElementById('status').value);
-                                sessionStorage.setItem("title",document.getElementById('title').value);
-                                sessionStorage.setItem("joinDate",document.getElementById('joinDate').value);
-                                sessionStorage.setItem("Member_ID",memberIdInt);
-                              }
-                            </script>
+
 
                             <script src="assets/js/updateMember.js"></script>
                             <script>
@@ -482,7 +470,19 @@
             </div>
         </div>
     </footer>
-
+    <script>
+      function parseMeID(){
+        var memberID = sessionStorage.getItem("memberId");
+        var memberIdInt = parseInt(memberID);
+        //alert(document.getElementById('fname').value);
+        sessionStorage.setItem("Member_Fname",document.getElementById('fName').value);
+        sessionStorage.setItem("Member_Lname",document.getElementById('lName').value);
+        sessionStorage.setItem("status",document.getElementById('status').value);
+        sessionStorage.setItem("title",document.getElementById('title').value);
+        sessionStorage.setItem("joinDate",document.getElementById('joinDate').value);
+        sessionStorage.setItem("Member_ID",memberIdInt);
+      }
+    </script>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
