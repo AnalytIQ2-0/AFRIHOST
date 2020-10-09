@@ -437,7 +437,7 @@
                                 myform.addEventListener('submit', (e) => {
                                     e.preventDefault();
                                     let xhr = new XMLHttpRequest();
-                                    xhr.open("POST", "http://localhost/github/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
+                                    xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/updateMember.php/?member_id="+mem_id);
 
                                     xhr.onload = function () {
                                         alert(xhr.responseText);

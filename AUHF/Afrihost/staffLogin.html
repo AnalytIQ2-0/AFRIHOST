@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Member login</title>
+    <title>AUHF- Staff login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Member Login</h3>
+                    <h3>Staff Login</h3>
                 </div>
             </div>
         </div>
@@ -68,14 +68,8 @@
         <div class="row" style="text-align:'center'" >
             <div class="col-md-8">
                 <div class="contact-form">
-                    <form id="memberDetails" method="post">
+                    <form id="staffDetails" method="post">
                         <div >
-
-                           <!--- <div class="col-md-10">
-                                <div class="section-heading">
-                                    <h2>Member login </h2>
-                                </div>
-                            </div>-->
                             <div class="col-lg-7 col-md-7 col-sm-7" style="width: 100%; margin:0 auto; left: 160px;">
                                 <div style="padding: 10px; border: 1px solid rgb(160, 159, 159);" class="GROUPBOX">
                                     <h2 style="text-align: center; color: rgb(42, 42, 129); margin-bottom: 25px;" ><b>LOGIN</b></h2>
@@ -119,14 +113,14 @@
         </div>
     </footer>
         <script>
-            let myform = document.getElementById('memberDetails');
+            let myform = document.getElementById('staffDetails');
 
             myform.addEventListener('submit', (e) => {
                 e.preventDefault();
                 let xhr = new XMLHttpRequest();
                 var email = document.getElementById('email').value;
                 var password = document.getElementById('password').value;
-                xhr.open("GET", 'http://localhost/AUHF/Afrihost/PHPs/memberLogin.php/?email='+email+'&password='+password);
+                xhr.open("GET", 'http://localhost/AUHF/Afrihost/PHPs/staffLogin.php/?email='+email+'&password='+password);
                 xhr.onload = function () {
 
                 //alert(xhr.responseText);
@@ -139,16 +133,16 @@
             function HtmlOutput(data){
               var hold="";
 
-              hold=data[0].member_id;
+              hold=data[0].staff_id;
               //alert(hold);
               if(!hold.localeCompare("false")){
                 alert("Wrong email address or password! Please try again.");
                 //htmlString='window.location.href="memberLogin.html"';
               }else{
-                sessionStorage.setItem("member_fname",data[0].member_fname);
-                sessionStorage.setItem("member_lname",data[0].member_lname);
-                sessionStorage.setItem("memberId",parseInt(hold));
-                window.location.href="memberDash.html";
+                sessionStorage.setItem("staff_fname",data[0].staff_fname);
+                sessionStorage.setItem("staff_lname",data[0].staff_lname);
+                sessionStorage.setItem("staffId",parseInt(hold));
+                window.location.href="AdminPage.html";
               }
             }
         </script>

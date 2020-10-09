@@ -104,24 +104,24 @@
                                 <div class="col-lg-7 col-md-7 col-sm-7">
                                         <div class="GROUPBOX">
                                             <legend>RSVP Details</legend>
-        
+
                                             <label for="contactNo">Contact number:</label>
-                                            <input name="ContactNo" type="tel" class="form-control" id="contactNo" placeholder="Contact number" required="">
-                                            
+                                            <input name="ContactNo" type="text" class="form-control" id="contactNo" placeholder="Contact number" required="">
+
                                             <label for="email">Email address:</label>
                                             <input name="Email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                             <fieldset>
                                                 <label for="desc">Description:</label>
                                                 <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Enter information on attendies (e.g. number of attendies, their full names and contacts.)" required=""></textarea>
                                             </fieldset>
-        
+
                                         </div>
                                 </div>
 
                                 <div class="col-lg-10">
-                                    
+
                                     <button type="submit" id="membersubmit" class="filled-button">Send</button>
-                                    
+
                                 </div>
                             </div>
 
@@ -153,9 +153,8 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec');
+            xhr.open("POST", 'http://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec');
             xhr.onload = function () {
-            //alert(xhr.responseText);
             alert(xhr.responseText);
             };
             xhr.send(new FormData(myform));
