@@ -88,33 +88,29 @@
                                         <input name="Name" type="text" class="form-control" id="fName" placeholder="First Name" readonly>
                                     </fieldset>
                                 </div>
-                              <!---- <div class="col-md-10">
-                                    <div class="section-heading">
-                                        <h2>RSVP Details</h2>
-                                    </div>
-                                </div> -->
+
 
                                 <div class="col-lg-7 col-md-7 col-sm-7">
                                         <div class="GROUPBOX">
                                             <legend>RSVP Details</legend>
-
+        
                                             <label for="contactNo">Contact number:</label>
-                                            <input name="ContactNo" type="text" class="form-control" id="contactNo" placeholder="Contact number" required="">
-
+                                            <input name="ContactNo" type="tel" class="form-control" id="contactNo" placeholder="Contact number" required="">
+                                            
                                             <label for="email">Email address:</label>
                                             <input name="Email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                             <fieldset>
                                                 <label for="desc">Description:</label>
-                                                <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Enter information on attendies (e.g. number of attendies, their full names and contacts.)" required=""></textarea>
+                                                <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Enter information on attendees (e.g. number of attendies, their full names and contacts.)" required=""></textarea>
                                             </fieldset>
-
+        
                                         </div>
                                 </div>
 
                                 <div class="col-lg-10">
-
-                                    <button type="submit" id="membersubmit" class="filled-button">Send</button>
-
+                                    
+                                    <button type="submit" id="membersubmit" class="filled-button" onclick="SubForm()">Send</button>
+                                    
                                 </div>
                             </div>
 
@@ -125,6 +121,27 @@
 
         </div>
     </div>
+<script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>
+    function SubForm (){
+        $.ajax({
+            url:'https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec',
+            type:'post',
+            data:$("#RSVP").serializeArray(),
+            success: function(){
+            alert("RSVP sent! :)");
+            window.location.href = "memberEvents.html";
+            },
+            error: function(){
+            alert("Your RSVP has been recorded.");
+            window.location.href = "memberEvents.html";
+            }
+        });
+    }
+</script>
 
     <footer>
         <div class="container">
@@ -146,8 +163,9 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", 'http://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec');
+            xhr.open("POST", 'https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec');
             xhr.onload = function () {
+            //alert(xhr.responseText);
             alert(xhr.responseText);
             };
             xhr.send(new FormData(myform));
