@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>AUHF - None Member Application</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +10,6 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Create membership</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,11 +33,13 @@
                 mm = '0'+mm
             }
 
-            today = yyyy + '-' + mm + '-' + dd;
+            today = yyyy + '/' + mm + '/' + dd;
 
             console.log(today);
             document.getElementById('joinDate').value = today;
+            //alert(today)
         }
+
     </script>
 
 </head>
@@ -56,15 +58,21 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <img class="auhfLogo" src="assets/images/logo.png">
-                <a class="navbar-brand" href="index.html"><h2>AU<em>HF</em></h2></a>
+                <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="create.html">
-                                Join AUHF
+                            <a class="nav-link active" href="createM.html">
+                                Add Member
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AdminPage.html">
+                                Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -80,7 +88,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Member Application</h3>
+                    <h3>None Member </h3>
                 </div>
             </div>
         </div>
@@ -90,7 +98,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="contact-form">
-                    <form id="memberDetails" action="http://localhost/AUHF/Afrihost/assets/Php/createmember.php" method="post">
+                    <form id="memberDetails" action="http://localhost/AUHF/Afrihost/PHPs/createmember.php" method="post">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <fieldset>
@@ -106,11 +114,9 @@
 
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
-
                                 <fieldset>
-                                  <label for="Membership Type">Membership Type*</label>
+                                  <label for="title"> Membership Type*</label>
                                     <select name="title" id="title" class="form-control" required>
-
                                         <option value="" disabled selected hidden>Membership Type</option>
                                         <option value="Individual">Individual</option>
                                         <option value="Company">Company</option>
@@ -119,7 +125,7 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
-                                  <label for="fname">First name*</label>
+                                  <label for="fname"> First name*</label>
                                     <input name="fname" type="text" class="form-control" id="fName" placeholder="First Name" required="">
                                 </fieldset>
                             </div>
@@ -138,20 +144,20 @@
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
-                                  <label for="companySize">Company size</label>
+                                  <label for="companySize"> Company size</label>
                                     <input name="companySize" type="text" class="form-control" id="companySize" placeholder="Company Size">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
-                                  <label for="city">City*</label>
+                                  <label for="city"> City*</label>
                                     <input name="city" type="text" class="form-control" id="city" placeholder="City" required="">
                                 </fieldset>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
                                   <label for="country">Country*</label>
-                                    <select class="form-control" id="eventCountry" name="country" required>
+                                    <select class="form-control" id="country" name="country" required>
                                         <option value="" disabled selected hidden>Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
@@ -403,7 +409,7 @@
 
                             <div class="col-lg-5 col-md-5 col-sm-5">
                                 <fieldset>
-                                  <label for="contactNo">Contact number*</label>
+                                  <label for="contactNo">Contact numbers*</label>
                                     <input name="contactNo" type="text" class="form-control" id="contactNo" placeholder="Contact Number" required="">
                                 </fieldset>
                             </div>
@@ -414,30 +420,14 @@
                                     <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
                                 </fieldset>
                             </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                <fieldset>
-
-                                    <input name="status" type="text" class="form-control" id="status" placeholder="Status" value="PENDING" hidden>
-                                </fieldset>
-                            </div>
 
                             <div class="col-md-10">
                                 <div class="section-heading">
                                 </div>
                             </div>
-                            <div class="d-flex">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <fieldset>
-                                      <label for="password">Password*</label>
-                                        <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <fieldset>
-                                      <label for="confirmPass">Confirm password*</label>
-                                        <input name="confirmPass" type="password" class="form-control" id="confirmPass" placeholder="Comfirm Password" required="">
-                                    </fieldset>
-                                </div>
+                            <div class="d-flex ">
+
+
                             </div>
 
                             <div class="col-lg-10">
@@ -458,11 +448,15 @@
         myform.addEventListener('submit', (e) => {
             e.preventDefault();
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/AUHF/Afrihost/assets/Php/createmember.php");
+            xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/createNonMember.php");
 
             xhr.onload = function () {
+              if(!xhr.responseText.localeCompare("Your application has been submitted!")){
                 alert(xhr.responseText);
-                window.location.assign("index.html");
+                window.location.assign("nonMember.html");
+              }else{
+                alert(xhr.responseText);
+              }
             };
 
             xhr.send(new FormData(myform));
