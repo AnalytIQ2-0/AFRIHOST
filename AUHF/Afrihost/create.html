@@ -429,20 +429,21 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <fieldset>
                                       <label for="password">Password*</label>
-                                        <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="">
+                                        <input name="password" type="password" class="form-control" id="password" placeholder="Password" required="" onkeyup="pass_validation()">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <fieldset>
                                       <label for="confirmPass">Confirm password*</label>
-                                        <input name="confirmPass" type="password" class="form-control" id="confirmPass" placeholder="Comfirm Password" required="">
+                                        <input name="confirmPass" type="password" class="form-control" id="confirmPass" placeholder="Comfirm Password" required="" onkeyup="pass_validation()">
+                                        <label id="message" style="font-size: 13px; margin-top: 0px;"></label>
                                     </fieldset>
                                 </div>
                             </div>
 
                             <div class="col-lg-10">
                                 <fieldset>
-                                    <button type="submit" id="membersubmit" class="filled-button">Submit Application</button>
+                                    <button type="submit" id="membersubmit" class="filled-button" disabled>Submit Application</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -452,7 +453,21 @@
         </div>
 
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function pass_validation() {
+            if (document.getElementById('password').value == document.getElementById('confirmPass').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Matching';
+                document.getElementById('membersubmit').disabled = false;
+            } else {
+                //alert("Passwords do not match!");
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Not matching'
+                document.getElementById('membersubmit').disabled = true;
+            }
+        }
+    </script>
     <script>
         let myform = document.getElementById('memberDetails');
         myform.addEventListener('submit', (e) => {

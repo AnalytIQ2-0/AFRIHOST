@@ -37,7 +37,7 @@
         <nav id="mUpdate" class="navbar navbar-expand-lg">
             <div class="container">
                 <img class="auhfLogo" src="assets/images/logo.png">
-                <a class="navbar-brand" href="AdminPage.html"><h2>AU<em>HF</em></h2></a>
+                <a class="navbar-brand" href="memberDash.html"><h2>AU<em>HF</em></h2></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,14 +53,9 @@
                                 Payments
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="parseMeID()" href="memberCoversationList.html">
-                                My Correspondences
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="memberDash.html">
-                                Back
+                        <li class="nav-item" onclick="parseMeID()">
+                            <a class="nav-link" href="memberConvoList.html">
+                                My Conversations
                             </a>
                         </li>
                     </ul>
@@ -104,7 +99,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <fieldset>
                                             <label for="status">Member Status:</label>
-                                            <input name="status" type="text" class="form-control" id="status" disabled>
+                                            <input name="status" type="text" class="form-control" id="status" placeholder = "PENDING" disabled>
                                         </fieldset>
                                     </div>
 
