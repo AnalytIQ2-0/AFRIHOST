@@ -3,9 +3,10 @@
         var convoRequest = new XMLHttpRequest();
         convoRequest.open('GET','http://localhost/AUHF/Afrihost/PHPs/getConvos.php?member_id='+memberID);
         convoRequest.onload = function(){
+          alert(convoRequest.responseText);
             var result = JSON.parse(convoRequest.responseText);
             HtmlOutput(result);
-            
+
         };
         convoRequest.send();
     });

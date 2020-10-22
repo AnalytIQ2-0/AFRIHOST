@@ -39,18 +39,11 @@
                             <ul class="navbar-nav ml-auto">
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="Events.html">Events
+                                    <a class="nav-link" href="viewRSVP.html">RSVPed Events</a>
                                     <span class="sr-only">(current)</span>
-                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="rsvpedEvents.html">RSVPed Events</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="AddEvent.html">Add Events</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="AdminPage.html">Home</a>
+                                    <a class="nav-link" href="Events.html">Back</a>
                                 </li>
                             </ul>
                         </div>
@@ -64,7 +57,7 @@
                         <div class="col-md-12">
                             <h3>All Events</h3>
                         </div>
-                        <div class="p-tip">Please select the Event ID to view an event.</div>
+                        <div class="p-tip">Members RSVPed to the Event.</div>
                     </div>
                 </div>
             </div>
@@ -83,12 +76,13 @@
                                                     <table id ="eveTable" class="table">
                                                         <thead class="table-header">
                                                             <tr >
-                                                                <th class="col6">Event ID</th>
-                                                                <th class="col1">Name</th>
-                                                                <th class="col4">Date</th>
-                                                                <th class="col4">Time</th>
-                                                                <th class="col4">Venue</th>
-                                                                <th class="col5">Location</th>
+                                                                <th class="col1">Event ID</th>
+                                                                <th class="col2">Event Name</th>
+                                                                <th class="col3">Member Name</th>
+                                                                <th class="col4">Description</th>
+                                                                <th class="col5">Email address</th>
+                                                                <th class="col6">Contact number</th>
+                                                                <th class="col7">RSVPed date</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="tableBody">
@@ -125,7 +119,8 @@
                                                     var fourthCol = rows[i].cells[3].textContent.toUpperCase();
                                                     var fifthCol = rows[i].cells[4].textContent.toUpperCase();
                                                     var sixthCol = rows[i].cells[5].textContent.toUpperCase();
-                                                    if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1 || fourthCol.indexOf(filter) > -1 || fifthCol.indexOf(filter) > -1 || sixthCol.indexOf(filter) > -1){
+                                                    var seventhCol = rows[i].cells[5].textContent.toUpperCase();
+                                                    if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1 || fourthCol.indexOf(filter) > -1 || fifthCol.indexOf(filter) > -1 || sixthCol.indexOf(filter) > -1 ||seventhCol.indexOf(filter) > -1){
                                                         rows[i].style.display = "";
                                                     } else {
                                                         rows[i].style.display = "none";
@@ -134,7 +129,7 @@
                                             }
                                             document.getElementById('tableSearch').addEventListener('keyup', filterTable, false);
                                             </script>
-                                          <script src="assets/js/getEvents.js"></script>
+                                          <script src="js/viewRSVPtoEvent.js"></script>
                                         </form>
                                     </div>
                                 </div>

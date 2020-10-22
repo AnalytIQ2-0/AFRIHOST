@@ -10,6 +10,7 @@ if($conn){
 	$lname=$_POST["lname"];
 	$country=$_POST["country"];
 	$city=$_POST["city"];
+	$province=$_POST["province"];
 	$contactNo=$_POST["contactNo"];
 	$email=$_POST["email"];
 	$joinDate=$_POST["joinDate"];
@@ -17,12 +18,12 @@ if($conn){
 	$companyName=$_POST["companyName"];
 	$companySize=$_POST["companySize"];
 	if(isset($fname,$lname,$country,$city,$contactNo)){
-		$checkResult = $conn->query("SELECT * FROM non_member WHERE member_email = '$email' AND member_fname = '$fname' AND member_lname='$lname'");
-        if($checkResult->num_rows > 0){
+		$checkResult = $conn->query("SELECT * FROM non_member WHERE non_email = '$email' AND non_fname = '$fname' AND non_lname='$lname'");
+        if(mysqli_num_rows($checkResult) > 0){
             echo ("This member already exists.");
         }
 		else{
-            $query ="INSERT INTO non_member (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            $query ="INSERT INTO non_member (non_companyName,non_fname,non_lname,non_country,non_city,non_contactNo,non_email,non_joinDate,non_title,non_companySize,non_province) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
             $fname=mysqli_real_escape_string($conn, $fname);
             $lname = mysqli_real_escape_string($conn, $lname );
@@ -39,7 +40,7 @@ if($conn){
 			if(!mysqli_stmt_prepare($stmt, $query)){
                die(mysqli_error($conn));
             }else{
-                mysqli_stmt_bind_param($stmt,"ssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize);
+                mysqli_stmt_bind_param($stmt,"sssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize,$province);
 
                 if($stmt->execute()){
                 echo  "Your application has been submitted!";

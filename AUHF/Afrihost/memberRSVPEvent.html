@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="RSVP" action="https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec" method="POST">
+                        <form id="RSVP" method="POST">
                             <div class="row">
 
                                 <div class="col-lg-3 col-md-3 col-sm-3">
@@ -100,24 +100,24 @@
                                 <div class="col-lg-7 col-md-7 col-sm-7">
                                         <div class="GROUPBOX">
                                             <legend>RSVP Details</legend>
-        
+
                                             <label for="contactNo">Contact number:</label>
                                             <input name="ContactNo" type="tel" class="form-control" id="contactNo" placeholder="Contact number" required="">
-                                            
+
                                             <label for="email">Email address:</label>
                                             <input name="Email" type="email" class="form-control" id="Email" placeholder="Email" required="">
                                             <fieldset>
                                                 <label for="desc">Description:</label>
                                                 <textarea name="Description" type="text" class="form-control" id="desc" placeholder="Enter information on attendees (e.g. number of attendies, their full names and contacts.)" required=""></textarea>
                                             </fieldset>
-        
+
                                         </div>
                                 </div>
 
                                 <div class="col-lg-10">
-                                    
+
                                     <button type="submit" id="membersubmit" class="filled-button" onclick="SubForm()">Send</button>
-                                    
+
                                 </div>
                             </div>
 
@@ -133,6 +133,25 @@
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 <script>
+let myform = document.getElementById('RSVP');
+myform.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost/AUHF/Afrihost/PHPs/storeRsvp.php");
+
+    xhr.onload = function () {
+      if(!xhr.responseText.localeCompare("RSVP has been submitted!")){
+        alert(xhr.responseText);
+        window.location.assign("memberEvents.html");
+      }else{
+        alert(xhr.responseText);
+      }
+    };
+
+    xhr.send(new FormData(myform));
+
+});
+/*
     function SubForm (){
         $.ajax({
             url:'https://script.google.com/a/students.wits.ac.za/macros/s/AKfycbwnWlahNpvmGdUJ4Z8x9lsH-bpzZptqW4Es0pxbZK0-HGgFSMQ/exec',
@@ -147,7 +166,7 @@
             window.location.href = "memberEvents.html";
             }
         });
-    }
+    }*/
 </script>
 
     <footer>

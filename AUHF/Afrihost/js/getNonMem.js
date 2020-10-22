@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
     urltable.onload = function () {
       var respondData = JSON.parse(urltable.responseText);
     //alert(respondData[0].member_id);
-      var hold = respondData[0].member_id;
+      var hold = respondData[0].non_id;
       if(hold.localeCompare("false")){
         loadmemberTable(respondData);
       }else{
@@ -24,12 +24,12 @@ var postedJobs = document.getElementById("tableBody");
     var  htmlString ="";
             for (var i = 0; i < res.length; i++) {
 
-                htmlString += '<tr class="tablerow"><td class="col1" onclick="parseMemberId()"><a href="viewNonMember.html">' + parseInt(res[i].member_id) +
-                    '</a></td><td class="col2">' + res[i].member_title +
-                    '</td><td class="col3">' + res[i].member_fname + " "+ res[i].member_lname +                    
-                    '</td><td class="col5">' + res[i].member_country +
-                    '</td><td class="col4">' + res[i].member_contactNo +
-                    '</td><td class="col6">' + res[i].member_email +
+                htmlString += '<tr class="tablerow"><td class="col1" onclick="parseMemberId()"><a href="viewNonMember.html">' + parseInt(res[i].non_id) +
+                    '</a></td><td class="col2">' + res[i].non_title +
+                    '</td><td class="col3">' + res[i].non_fname + " "+ res[i].non_lname +
+                    '</td><td class="col5">' + res[i].non_country +
+                    '</td><td class="col4">' + res[i].non_contactNo +
+                    '</td><td class="col6">' + res[i].non_email +
                     '</td></tr>';
                }
            postedJobs.insertAdjacentHTML('beforeend', htmlString);

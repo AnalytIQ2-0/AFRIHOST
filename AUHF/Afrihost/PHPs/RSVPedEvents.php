@@ -7,8 +7,8 @@ $conn = mysqli_connect("127.0.0.1", $username, $password, $database);
 $json = array();
 
 if($conn){
-    $memQry = "SELECT * FROM non_member";
-    $memberRes = $conn->query($memQry);
+
+    $memberRes = $conn->query("SELECT * from event,rsvp where event.event_id = rsvp.event_id");
     if($memberRes){
         while($row=$memberRes->fetch_assoc()){
             $json[] = $row;
@@ -19,11 +19,11 @@ mysqli_close($conn);
 if(!empty($json)){
      echo json_encode($json);
 }else{
-  $arr= array(array("non_id"=>"false"));
-    echo json_encode($arr);
+    $res ="There are no RSVPed events.";
+    echo json_encode($res);
 }
+
 } else {
-  $arr= array(array("non_id"=>"false"));
-  echo json_encode($arr);
+echo "Connection Error!";
 }
 ?>

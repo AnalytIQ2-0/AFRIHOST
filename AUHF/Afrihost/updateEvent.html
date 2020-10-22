@@ -413,12 +413,17 @@
 
                           <div class="col-lg-5">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="filled-button">Save</button>
+                              <button type="submit" id="form-submit" onclick="parseEventName()" class="filled-button">Save</button>
                             </fieldset>
                           </div>
                         </div>
                         <script src="assets/js/updateEvent.js"></script>
                         <script>
+                        function parseEventName(){
+                                sessionStorage.setItem("eventName",document.getElementById('eventName').value);
+                              }
+                            }
+                          }
                             let form = document.getElementById('eventUpdate');
                             var evenID = sessionStorage.getItem("eventId");
                               form.addEventListener('submit', (e)=>{

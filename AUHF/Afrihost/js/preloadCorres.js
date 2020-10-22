@@ -5,8 +5,8 @@ window.addEventListener("load",function(){
     var memberLname = sessionStorage.getItem("Member_Lname");
     var memberIdInt = parseInt(memberID);
     document.getElementById('memberID').value=memberIdInt;
-    var name = "<h5> Member:<br> "+ memberFname +" "+memberLname+"</h5>";
-    var heading = document.getElementById('lname').value;
+    var name = "<h5> Member's name:<br> "+ memberFname +" "+memberLname+"</h5>";
+    var heading = document.getElementById('lname');
     heading.insertAdjacentHTML('beforeend',name);
     //document.getElementById('lname').value=memberLname+" "+memberFname;
 });

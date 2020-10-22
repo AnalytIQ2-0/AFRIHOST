@@ -15,19 +15,20 @@
             }
         }
         else{
-          $arr = array(array("Could not complete action."));
+          $arr = array(array("corres_id"=>"false"));
           echo json_encode($arr);
-          die(mysqli_error($conn));
+          //die(mysqli_error($conn));
         }
     }else{
-        $arr= array(array("Connection Problem. Try Again."));
+        $arr= array(array("corres_id"=>"false"));
     }
     mysqli_close($conn);
     if(empty($output)){
-        $arr= array(array("No conversations found."));
+        $arr= array(array("corres_id"=>"false"));
         echo json_encode($arr);
     }else{
       echo json_encode($output);
     }
+    //mysqli_close($conn);
     die();
 ?>
