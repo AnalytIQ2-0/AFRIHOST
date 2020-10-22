@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
     <title>AUHF - Events</title>
-
+    <link rel="icon" href="assets/images/logo.png">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -99,7 +99,7 @@
                                                     var hold = EId.split(">");
                                                     var hold2 = hold[1].split("<");
                                                     sessionStorage.setItem("eventId",hold2[0]);
-                                                    
+
                                                     sessionStorage.setItem("member_fname",sessionStorage.getItem("member_fname"));
                                                     sessionStorage.setItem("member_lname",sessionStorage.getItem("member_lname"));
                                                     sessionStorage.setItem("memberId",parseInt(hold));

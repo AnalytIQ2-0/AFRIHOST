@@ -7,17 +7,17 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    
+
         <title>Conversation list</title>
-    
+        <link rel="icon" href="assets/images/logo.png">
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
+
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css">
         <link rel="stylesheet" href="assets/css/stylesUI.css">
         <link rel="stylesheet" href="assets/css/owl.css">
-    
+
       </head>
       <body>
         <!-- ***** Preloader Start ***** -->
@@ -59,7 +59,7 @@
                 <div class="container">
                         <div class="col-md-12" id="pageTitle"></div>
                         <script src="js/getMemberName.js"></script>
-                        
+
                         <div class="p-tip">Please select the Conversation ID to view the conversation.</div>
                     </div>
                 </div>
@@ -95,12 +95,12 @@
                                               table.rows[i].onclick=function(){
                                                 rIndex=this.rowIndex;
                                                 var conId= this.cells[0].innerHTML;
-    
+
                                                 //This is to get the convo id
                                                 var hold = conId.split(">");
                                                 var hold2 = hold[1].split("<");
                                                 sessionStorage.setItem("conID",hold2[0]);
-    
+
                                               }
                                             }
                                           }
@@ -137,7 +137,7 @@
                     <div class="col-md-12">
                       <div class="inner-content">
                         <p>Copyright &copy; 2020 AnalytIQ Project, Ltd.
-    
+
                       - Design: <a rel="nofollow noopener" href="" target="_blank">AFRIHOST</a></p>
                       </div>
                     </div>
@@ -147,15 +147,15 @@
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
-    
+
+
         <!-- Additional Scripts -->
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/owl.js"></script>
         <script src="assets/js/slick.js"></script>
         <script src="assets/js/isotope.js"></script>
         <script src="assets/js/accordions.js"></script>
-    
+
         <script language = "text/Javascript">
           cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
           function clearField(t){                   //declaring the array outside of the
