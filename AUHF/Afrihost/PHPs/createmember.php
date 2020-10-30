@@ -23,7 +23,7 @@ if($conn){
             echo ("This member already exists.");
         }
 		else{
-            $query ="INSERT INTO MEMBER (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            $query ="INSERT INTO MEMBER (member_companyName,member_fname,member_lname,member_country,member_city,member_contactNo,member_email,member_joinDate,member_title,member_companySize,member_password) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
             $fname=mysqli_real_escape_string($conn, $fname);
             $lname = mysqli_real_escape_string($conn, $lname );
@@ -41,7 +41,7 @@ if($conn){
 			if(!mysqli_stmt_prepare($stmt, $query)){
                die(mysqli_error($conn));
             }else{
-                mysqli_stmt_bind_param($stmt,"sssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$status,$companySize,$password);
+                mysqli_stmt_bind_param($stmt,"sssssssssss",$companyName,$fname,$lname,$country,$city,$contactNo,$email,$joinDate,$title,$companySize,$password);
 
                 if($stmt->execute()){
                 echo  "Your application has been submitted!";

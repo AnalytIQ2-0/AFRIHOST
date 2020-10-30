@@ -8,7 +8,7 @@ $member_id = $_REQUEST["member_id"];
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $title = $_POST["title"];
-//$status= $_POST["status"];
+$status= $_POST["status"];
 $company = $_POST["companyName"];
 $size = $_POST["companySize"];
 $phone = $_POST["contactNo"];
@@ -24,11 +24,13 @@ if($conn){
             $msg = "Update Successfull!";
             echo $msg;
         }else{
-            $msg = "Error Occured. Upadate Unsuccessfull!";
+            $msg = "Error Occured. Update Unsuccessfull!";
+            die(mysqli_error($conn));
             echo $msg;
         }
     }else{
         $msg = "Please ensure to fill-in all the required fields.";
+
         echo $msg;
     }
 }else{

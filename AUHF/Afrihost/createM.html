@@ -453,7 +453,19 @@
         </div>
 
     </div>
-
+    <script>
+      var password = document.getElementById('password');
+      var confirmPass = document.getElementById('confirmPass');
+      function validatePassword(){
+        if(password.value !=confirmPass.value){
+          confirmPass.setCustomValidity("Passwords don't match");
+        }else{
+          confirmPass.setCustomValidity("");
+        }
+      }
+      password.onchange = validatePassword;
+      confirmPass.onkeyup=validatePassword;
+    </script>
     <script>
         let myform = document.getElementById('memberDetails');
         myform.addEventListener('submit', (e) => {

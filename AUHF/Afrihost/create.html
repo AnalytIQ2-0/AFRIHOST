@@ -498,7 +498,19 @@
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
-
+    <script>
+      var password = document.getElementById('password');
+      var confirmPass = document.getElementById('confirmPass');
+      function validatePassword(){
+        if(password.value !=confirmPass.value){
+          confirmPass.setCustomValidity("Passwords don't match");
+        }else{
+          confirmPass.setCustomValidity("");
+        }
+      }
+      password.onchange = validatePassword;
+      confirmPass.onkeyup=validatePassword;
+    </script>
 
     <script language="text/Javascript">
 
